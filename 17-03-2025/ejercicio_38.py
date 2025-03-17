@@ -10,19 +10,23 @@ Orden original: 12 43 5 26 7 98 1 32 18 9
 Orden inverso: 9 18 32 1 98 7 26 5 43 12
 """
 
+# Version con dos listas
 numeros_original = []
 numeros_inverso = []
-lista_de_10 = [0 for x in range(1, 11)]
-print(lista_de_10)
 
 for i in range(5):
     numeros_original.append(int(input("Ingrese un entero: ")))
-# for i in range(10):
-#     numeros_inverso[i] = numeros_original[9 - i]
+
+for i in range(len(numeros_original)):
+    numeros_inverso.append(numeros_original[len(numeros_original) - 1 - i])
 
 print(numeros_original)
-# print(numeros_inverso)
+aux = list(reversed(numeros_original))
+print(numeros_inverso)
+print(aux)
+print(numeros_inverso)
+
+
 for i in reversed(range(len(numeros_original))):
     print(numeros_original[i], end=",")
-
 print("\n")
