@@ -1,0 +1,22 @@
+# Ignorar todo por defecto
+*
+
+# Permitir archivos .java y .py en cualquier subdirectorio
+!**/*.java
+!**/*.py
+
+# También permitir el archivo .gitignore
+!.gitignore
+
+# Ignorar archivos específicos de Eclipse
+.classpath
+.project
+.settings/
+bin/
+target/
+
+# Ignorar archivos temporales de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
