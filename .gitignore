@@ -1,6 +1,9 @@
 # Ignorar todo por defecto
 *
 
+# Permitir directorios para que Git pueda ver archivos dentro
+!*/
+
 # Permitir archivos .java y .py en cualquier subdirectorio
 !**/*.java
 !**/*.py
