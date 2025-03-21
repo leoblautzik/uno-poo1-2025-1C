@@ -1,4 +1,4 @@
-"""Se ingresa un valor numérico por consola, determinar e 
+"""Se ingresa un valor numérico por consola, determinar e
 informar si se trata de un número primo o no"""
 
 # def es_primo(n) -> bool:
@@ -13,7 +13,7 @@ informar si se trata de un número primo o no"""
 #     return ep
 
 
-def es_primo(n):
+def es_primo(n) -> bool:
     """Devuelve true si el n es primo"""
     for i in range(2, n // 2):
         if n % i == 0:
