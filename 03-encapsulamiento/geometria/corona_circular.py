@@ -10,6 +10,8 @@ queremos poder desplazar la corona a otro punto del plano
 """
 
 from circulo import Circulo
+from color import Color
+from punto import Punto
 
 
 class CoronaCircular:
@@ -20,28 +22,35 @@ class CoronaCircular:
         self.__ce = Circulo(re, xc, yc, color)
 
     @property
-    def centro(self):
+    def centro(self) -> Punto:
+        """Devuelve un objeto Punto que es el centro de la CC"""
         return self.__ci.centro
 
     @property
-    def color(self):
+    def color(self) -> Color:
+        """Devuelce el Color de la CC que es un enumerado de Color"""
         return self.__ce.color
 
     def perimetro_interior(self):
+        """Devuelve el perimetro interior"""
         return self.__ci.perimetro()
 
     def perimetro_exterior(self):
+        """Devuelve el perimetro exterior"""
         return self.__ce.perimetro()
 
     def area(self):
+        """Devuelve el area de la CC"""
         return self.__ce.area() - self.__ci.area()
 
     def desplazar(self, en_x, en_y):
+        """Desplaza el centro de la CC segun los parametros en_x y en_y"""
         self.__ce.desplazar(en_x, en_y)
         self.__ci.desplazar(en_x, en_y)
 
 
 def main():
+    """funcion main"""
     c = CoronaCircular(2, 4, 1, 1, "rojo")
     print(c.area())
     print(c.perimetro_interior())
