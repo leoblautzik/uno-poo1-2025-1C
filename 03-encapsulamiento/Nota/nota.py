@@ -2,9 +2,9 @@
 
 
 class Nota:
-    def __init__(self, valor):
+    def __init__(self, valor_inicial):
         """Valor inicial debe estar comprendido entre 0 y 10"""
-        self.valor = valor
+        self.valor = valor_inicial
 
     @property
     def valor(self):
@@ -19,9 +19,11 @@ class Nota:
         self.__valor = valor_inicial
 
     def aprobado(self):
+        """Devuelve True si la nota implica la aprobacion"""
         return self.valor >= 4
 
     def desaprobado(self):
+        """Devuelve True si la nota implica la desaprobacion"""
         return not self.aprobado()
 
     def recuperar(self, nuevo_valor: int):
@@ -34,6 +36,7 @@ class Nota:
 
 
 def main():
+    """main"""
     n = Nota(10)
     print(n.valor)
     print(n.aprobado())

@@ -52,7 +52,7 @@ def main():
     print("radio de c1: ", c1.radio)
     print("diametro de c1: ", c1.diametro())
     print(c2.perimetro())
-    # print(c1.__color)
+    print(c1.color)
     print(c1.area())
     print(c2.area())
 
