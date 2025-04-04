@@ -5,7 +5,7 @@ from cuenta import Cuenta
 
 class CuentaCorriente:
     """Modelamos una Cuenta Corriente definiendo un descubierto al momento de la apertura
-    La CuentaCorriente contiene uns Cuenta"""
+    La CuentaCorriente contiene una Cuenta"""
 
     def __init__(self, titular, descubierto):
         self.__cuenta = Cuenta(titular, 0)
