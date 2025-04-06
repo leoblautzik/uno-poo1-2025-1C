@@ -1,8 +1,12 @@
-package biblioteca;
+package tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
+
+import biblioteca.Biblioteca;
+import biblioteca.Genero;
+import biblioteca.Libro;
 
 public class BibliotecaTest {
 

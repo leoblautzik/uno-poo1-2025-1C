@@ -15,7 +15,7 @@ class CajaAhorro:
 
     def obtener_titular(self):
         """Devulelve el titular de la cuenta"""
-        return self.obtener_titular()
+        return self.__cuenta.obtener_titular()
 
     def depositar(self, monto):
         """Deposita en monto en la cuenta si es un valor positivo"""

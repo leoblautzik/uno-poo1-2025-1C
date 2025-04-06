@@ -22,6 +22,18 @@ class TarjetaBajaTest(unittest.TestCase):
         obtenido = tb.obtener_saldo()
         self.assertEqual(esperado, obtenido)
 
+    def test_pagar_subte(self):
+        tb = TarjetaBaja(50)
+        tb.pagar_viaje_en_subte()
+        esperado = 30.50
+        obtenido = tb.obtener_saldo()
+        self.assertEqual(esperado, obtenido)
+
+    def test_cargar(self):
+        tb = TarjetaBaja(50)
+        tb.cargar(100)
+        self.assertEqual(150, tb.obtener_saldo())
+
 
 if __name__ == "__main__":
     unittest.main()

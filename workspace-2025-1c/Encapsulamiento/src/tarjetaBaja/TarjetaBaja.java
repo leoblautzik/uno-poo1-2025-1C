@@ -5,6 +5,8 @@ class TarjetaBaja {
 	private double saldo;
 	private int viajesEnColectivo;
 	private int viajesEnSubte;
+	private static double BONDI = 21.50;
+	private static double SUBTE = 19.50;
 
 	/**
 	 * post: saldo de la Tarjeta en saldoInicial.
@@ -38,8 +40,8 @@ class TarjetaBaja {
 	 * colectivo.
 	 */
 	public void pagarViajeEnColectivo() {
-		if (this.saldo >= 21.50) {
-			this.saldo -= 21.50;
+		if (this.saldo >= TarjetaBaja.BONDI) {
+			this.saldo -= TarjetaBaja.BONDI;
 			this.viajesEnColectivo++;
 		}
 
@@ -49,8 +51,8 @@ class TarjetaBaja {
 	 * pre : saldo suficiente. post: utiliza 19.50 del saldo para un viaje en subte.
 	 */
 	public void pagarViajeEnSubte() {
-		if (this.saldo >= 19.50) {
-			this.saldo -= 19.50;
+		if (this.saldo >= TarjetaBaja.SUBTE) {
+			this.saldo -= TarjetaBaja.SUBTE;
 			this.viajesEnSubte++;
 		}
 	}
