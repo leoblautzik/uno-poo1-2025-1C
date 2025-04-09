@@ -1,13 +1,14 @@
 from cuenta import Cuenta
 
 
-class CajaAhorro:
+class CajaDeAhorro:
     """Modelamos una Caja de Ahorro usando composicion.
     CajaAhorro contiene una Cuenta
     """
 
     def __init__(self, titular):
         self.__cuenta = Cuenta(titular, 0)
+        self.__reserva = 0
 
     def consultar_saldo(self):
         """Devulelve el saldo de la cuenta"""
@@ -21,9 +22,24 @@ class CajaAhorro:
         """Deposita en monto en la cuenta si es un valor positivo"""
         self.__cuenta.depositar(monto)
 
-    def extraer(self, monto):
+    def extraer(self, monto) -> float:
         """Retira dinero si hay suficiente saldo"""
-        self.__cuenta.extraer(monto)
+        return self.__cuenta.extraer(monto)
+
+    def reservar(self, monto):
+        if self.consultar_saldo() >= monto:
+            self.__reserva += self.extraer(monto)
+
+    def consultar_reserva(self):
+        return self.__reserva
+
+    def retirar_de_reserva(self, monto):
+        if monto <= self.__reserva:
+            self.__reserva -= monto
+            self.depositar(monto)
+
+    def transferir(self, destino, monto):
+        destino.depositar(self.extraer(monto))
 
 
 def main():

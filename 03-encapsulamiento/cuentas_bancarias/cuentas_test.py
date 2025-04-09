@@ -2,7 +2,7 @@
 
 import unittest
 
-from cuenta_ahorro import CajaDeAhorro
+from caja_ahorro import CajaDeAhorro
 from cuenta_corriente import CuentaCorriente
 
 
@@ -33,7 +33,6 @@ class CuentasTest(unittest.TestCase):
         self.assertEqual(6000, cc.consultar_saldo())
 
     def test_cta_cte(self):
-        """No se puede extraer mas del saldo + descubierto"""
         cc = CuentaCorriente(123456, 1000)
         cc.extraer(500)
         self.assertEqual(-500, cc.consultar_saldo())

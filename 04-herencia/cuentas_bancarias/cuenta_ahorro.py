@@ -17,11 +17,11 @@ class CajaDeAhorro(Cuenta):
     def hay_dinero_suficiente(self, monto) -> bool:
         """Devuelve true o false, segun alcance el saldo para
         hacer la operacion"""
-        return super().get_saldo() >= monto
+        return super().consultar_saldo() >= monto
 
     def reservar(self, monto):
         """Reserva en la reservarva una parte del saldo"""
-        if monto <= self.get_saldo():
+        if monto <= self.consultar_saldo():
             self.__reserva += self.extraer(monto)
 
     def recuperar(self, monto):
@@ -35,7 +35,7 @@ class CajaDeAhorro(Cuenta):
         return self.__reserva
 
     def get_dinero_disponible(self) -> float:
-        return super().get_saldo() + self.get_reserva()
+        return super().consultar_saldo() + self.get_reserva()
 
     def __str__(self) -> str:
         return super().__str__() + ", Reserva: " + str(self.__reserva)

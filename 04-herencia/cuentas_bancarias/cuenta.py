@@ -36,7 +36,7 @@ class Cuenta(ABC):
 
         return self.__dni
 
-    def get_saldo(self) -> float:
+    def consultar_saldo(self) -> float:
         """devuelve el saldo de la cuenta"""
 
         return self.__saldo

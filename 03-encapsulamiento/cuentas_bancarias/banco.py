@@ -35,6 +35,15 @@ def main():
     print(b.obtener_total_descubierto())
     b.extraer("Monica", 5000)
 
+    ca = CajaAhorro("Abc")
+    ca.depositar(10000)
+    cc = CuentaCorriente("Bcd", 3000)
+    cc.depositar(4000)
+    cc.transferir(ca, 1000)
+    print(cc.consultar_saldo(), ca.consultar_saldo())
+    ca.transferir(cc, 2000)
+    print(cc.consultar_saldo(), ca.consultar_saldo())
+
 
 if __name__ == "__main__":
     main()

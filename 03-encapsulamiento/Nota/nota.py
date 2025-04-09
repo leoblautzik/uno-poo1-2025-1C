@@ -34,16 +34,24 @@ class Nota:
         """
         self.valor = max(nuevo_valor, self.valor)
 
+    def __repr__(self) -> str:
+        ap = "aprobado"
+        if self.__valor < 4:
+            ap = "desarobado"
+        return f"La nota es {self.__valor} y está {ap}"
+
 
 def main():
     """main"""
     n = Nota(10)
+    print(n)
     print(n.valor)
     print(n.aprobado())
     print(n.valor, n.aprobado())
     n1 = Nota(4)
     print(n1.valor, n1.aprobado())
     n2 = Nota(2)
+    print(n2)
     print(n2.valor, n2.aprobado(), n2.desaprobado())
     n2.recuperar(5)
     print(n2.valor, n2.aprobado(), n2.desaprobado())

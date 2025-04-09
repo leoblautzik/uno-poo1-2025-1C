@@ -28,7 +28,7 @@ class CuentaCorriente:
         else:
             self.__descubierto_usado -= monto
 
-    def hay_disponible(self, monto):
+    def hay_dinero_suficiente(self, monto):
         """Devuelve True si hay disponible para realizar la operacion"""
         return self.disponible() >= monto
 
@@ -38,15 +38,20 @@ class CuentaCorriente:
             self.__descubierto - self.__descubierto_usado
         )
 
-    def extraer(self, monto):
+    def extraer(self, monto) -> float:
         """Permite extraer dinero hasta el limite del descubierto"""
-        if not self.hay_disponible(monto):
+        platita = 0.0
+        if not self.hay_dinero_suficiente(monto):
             print("No hay dinero disponible")
         elif monto <= self.__cuenta.consultar_saldo():
-            self.__cuenta.extraer(monto)
+            platita = self.__cuenta.extraer(monto)
         elif monto <= self.disponible():
             self.__descubierto_usado += monto - self.__cuenta.consultar_saldo()
-            self.__cuenta.extraer(self.__cuenta.consultar_saldo())
+            platita = self.__cuenta.extraer(self.__cuenta.consultar_saldo())
+        return platita
+
+    def transferir(self, destino, monto):
+        destino.depositar(self.extraer(monto))
 
 
 def main():

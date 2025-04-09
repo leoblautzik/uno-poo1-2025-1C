@@ -18,10 +18,10 @@ class CuentaCorriente(Cuenta):
         return self.__descubierto
 
     def hay_dinero_suficiente(self, monto) -> bool:
-        return super().get_saldo() + self.__descubierto >= monto
+        return super().consultar_saldo() + self.__descubierto >= monto
 
     def get_dinero_disponible(self) -> float:
-        return super().get_saldo() + self.get_descubierto()
+        return super().consultar_saldo() + self.get_descubierto()
 
     def __str__(self) -> str:
         return super().__str__() + ", Descubierto: " + str(self.__descubierto)
