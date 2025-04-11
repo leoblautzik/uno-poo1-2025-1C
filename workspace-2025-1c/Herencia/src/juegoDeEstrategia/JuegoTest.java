@@ -32,5 +32,17 @@ class JuegoTest {
 		assertTrue(ryan.puedeAtacar(rambo));
 	}
 	
+	@Test
+	void atacaHastaquedarSinFlechasTest() {
+		Soldado rambo = new Soldado(1);
+		Arquero legolas = new Arquero(5);
+		for(int i=0; i<20; i++) {
+			legolas.atacar(rambo);
+		}
+		assertFalse(legolas.puedeAtacar(rambo));
+		assertEquals(100,rambo.getSalud());
+		assertEquals(0, legolas.getFlechas());
+	}
+	
 
 }

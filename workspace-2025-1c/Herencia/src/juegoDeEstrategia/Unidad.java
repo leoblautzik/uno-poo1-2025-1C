@@ -6,6 +6,12 @@ public abstract class Unidad {
 	private int danio;
 	private int posicion;
 
+	public Unidad(int salud, int danio, int posicion) {
+		this.salud = salud;
+		this.danio = danio;
+		this.posicion = posicion;
+	}
+
 	public int getSalud() {
 		return salud;
 	}
@@ -13,17 +19,10 @@ public abstract class Unidad {
 	public int getDanio() {
 		return danio;
 	}
+
 	public int getPosicion() {
 		return this.posicion;
 	}
-
-	public Unidad(int salud, int danio, int posicion) {
-		this.salud = salud;
-		this.danio = danio;
-		this.posicion = posicion;
-	}
-
-	
 
 	public void recibirDanio(int danio) {
 		this.salud -= danio;

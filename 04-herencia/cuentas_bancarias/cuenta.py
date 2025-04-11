@@ -27,14 +27,14 @@ class Cuenta(ABC):
     Clase abstracta en python
     """
 
-    def __init__(self, dni):
+    def __init__(self, titular):
         self.__saldo = 0.00
-        self.__dni = dni
+        self.__titular = titular
 
-    def get_titular(self):
+    def obtener_titular(self):
         """devuelve el dni del titular de la cuenta"""
 
-        return self.__dni
+        return self.__titular
 
     def consultar_saldo(self) -> float:
         """devuelve el saldo de la cuenta"""

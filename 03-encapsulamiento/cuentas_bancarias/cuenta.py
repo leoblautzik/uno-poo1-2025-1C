@@ -18,7 +18,7 @@ class Cuenta:
         if monto > 0.0:
             self.__saldo += monto
         else:
-            print("El monto a depositar debe ser positivo")
+            print("El monto a depositar debe get_saldoser positivo")
 
     def extraer(self, monto: float) -> float:
         """Retira dinero si hay suficiente saldo"""
@@ -33,6 +33,9 @@ class Cuenta:
 
     def hay_dinero_suficiente(self, monto) -> bool:
         return 0 <= monto <= self.__saldo
+
+    def transferir(self, destino, monto):
+        destino.depositar(self.extraer(monto))
 
 
 def main():

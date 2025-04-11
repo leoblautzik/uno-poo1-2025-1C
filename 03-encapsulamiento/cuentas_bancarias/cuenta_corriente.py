@@ -51,7 +51,7 @@ class CuentaCorriente:
         return platita
 
     def transferir(self, destino, monto):
-        destino.depositar(self.extraer(monto))
+        self.__cuenta.transferir(destino, monto)
 
 
 def main():
