@@ -8,6 +8,7 @@
 !**/*.java
 !**/*.py
 !README.md
+!**/*.md
 
 # También permitir el archivo .gitignore
 !.gitignore

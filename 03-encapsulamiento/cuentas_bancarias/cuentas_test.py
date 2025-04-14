@@ -1,4 +1,4 @@
-"""Pruebas unitarias para Circulo"""
+"""Pruebas unitarias para cuentas bancarias"""
 
 import unittest
 

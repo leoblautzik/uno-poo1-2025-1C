@@ -19,6 +19,8 @@ public void listarCuentas(){}
 ordenado por saldo de manera ascendente.
 """
 
+from __future__ import annotations
+
 from abc import ABC, abstractmethod
 
 
@@ -73,11 +75,11 @@ class Cuenta(ABC):
             raise ValueError("Monto incorrecto")
         self.__saldo += monto
 
-    def transferir(self, destino, monto):
+    def transferir(self, destino: Cuenta, monto: float):
         """Transfiere el monto desde la cuenta self a la cuenta destino"""
         if self.hay_dinero_suficiente(monto):
             self.extraer(monto)
             destino.depositar(monto)
 
     def __repr__(self) -> str:
-        return "DNI: " + str(self.__dni) + ", Saldo: " + str(self.__saldo)
+        return "Titular: " + str(self.__titular) + ", Saldo: " + str(self.__saldo)

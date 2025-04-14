@@ -23,7 +23,7 @@ class Banco:
         return CajaDeAhorro(dni)
 
     def abrir_cuenta_corriente(self, dni, descubierto) -> CuentaCorriente:
-        """Crea una cuenta corriente y la agrega a la lista de cuentas"""
+        """dniCrea una cuenta corriente y la agrega a la lista de cuentas"""
         return CuentaCorriente(dni, descubierto)
 
     def agregar_cuenta(self, c: Cuenta):
