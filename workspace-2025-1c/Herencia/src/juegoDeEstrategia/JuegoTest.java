@@ -10,6 +10,7 @@ class JuegoTest {
 	void soldadoAtacaSoldadoTest() {
 		Soldado rambo = new Soldado(1);
 		Soldado ryan = new Soldado(1);
+		System.out.println(rambo instanceof Soldado);
 		rambo.atacar(ryan);
 		assertEquals(190, ryan.getSalud());
 		assertEquals(90, rambo.getEnergia());

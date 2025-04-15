@@ -24,10 +24,12 @@ public class Arquero extends Unidad {
 	public boolean puedeAtacar(Unidad enemigo) {
 		if (enemigo.estaMuerto()) {
 			throw new Error("No podes atacar a un muerto");
+			
 		}
 
 		return this.distancia(enemigo) >= 2 && this.distancia(enemigo) <= 5  
 				&& !this.estaMuerto() && this.flechas > 0;
+				
 	}
 
 }
