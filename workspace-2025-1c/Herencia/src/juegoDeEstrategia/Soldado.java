@@ -1,6 +1,6 @@
 package juegoDeEstrategia;
 
-public class Soldado extends Unidad {
+public class Soldado extends Unidad implements Bebedor{
 	private int energia = 100;
 
 	public Soldado(int posicion) {
@@ -26,6 +26,12 @@ public class Soldado extends Unidad {
 		}
 
 		return this.distancia(enemigo) == 0 && !this.estaMuerto() && this.energia >= 10;
+	}
+
+	@Override
+	public void beberAgua() {
+		this.energia = 100;
+		
 	}
 
 }

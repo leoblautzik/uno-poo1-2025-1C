@@ -2,6 +2,13 @@ package juegoDeEstrategia;
 
 public class Arquero extends Unidad {
 
+	public Arquero(int salud, int danio, int posicion) {
+		super(salud, danio, posicion);
+		// TODO Auto-generated constructor stub
+	}
+
+	
+
 	private int flechas = 20;
 
 	public Arquero(int posicion) {
