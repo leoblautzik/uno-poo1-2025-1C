@@ -9,6 +9,10 @@ public class Auto {
 		this.marca = marca;
 		this.motor = motor;
 	}
+	public Auto(String marca, String tipoDeMotor) {
+		this.marca = marca;
+		this.motor = new Motor(tipoDeMotor);
+	}
 	
 	public String getMarca() {
 		return this.marca;
@@ -18,10 +22,6 @@ public class Auto {
 		return this.motor.getTipoDeMotor();
 	}
 
-	public Auto(String marca, String tipoDeMotor) {
-		this.marca = marca;
-		this.motor = new Motor(tipoDeMotor);
-	}
 	
 	@Override
 	public String toString() {
