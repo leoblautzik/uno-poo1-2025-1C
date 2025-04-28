@@ -2,7 +2,14 @@ package profesionales;
 
 public abstract class Profesional implements Comparable<Profesional> {
 	
-	protected static double honorario_basico=500000;
+	private static double honorarioBasico=500000;
+	
+	public static void setHonorarioBasico(double nuevoValor) {
+		Profesional.honorarioBasico = nuevoValor;
+	}
+	public static double getHonorarioBasico() {
+		return Profesional.honorarioBasico;
+	}
 	
 	@Override
 	public String toString() {

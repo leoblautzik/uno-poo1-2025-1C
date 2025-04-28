@@ -8,7 +8,7 @@ public class Medico extends Profesional{
 
 	@Override
 	public double calcularHonorario() {
-		return Profesional.honorario_basico;
+		return Profesional.getHonorarioBasico();
 	}
 
 }

@@ -2,7 +2,7 @@ from abc import ABCMeta, abstractmethod
 
 
 class Profesional(metaclass=ABCMeta):
-    __honorario_basico = 1500000
+    __honorario_basico = 500000
 
     def __init__(self, nombre, apellido):
         self.nombre = nombre
@@ -67,6 +67,11 @@ def main():
 
     total = sum(p.calcular_honorario() for p in profesionales)
     print(f"\nTotal a abonar: ${total:,.2f}\n")
+
+    Profesional.set_honorario_basico(1200000)
+
+    total = sum(p.calcular_honorario() for p in profesionales)
+    print(f"\nNuevo Total a abonar: ${total:,.2f}\n")
 
     print("Listado de profesionales (ordenado por honorarios descendente):")
     for profesional in sorted(profesionales, reverse=True):

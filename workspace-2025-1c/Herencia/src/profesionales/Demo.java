@@ -19,6 +19,7 @@ public class Demo {
 		profesionales.add(silvia);
 		profesionales.add(endo);
 		
+		Profesional.setHonorarioBasico(1300000);
 		Collections.sort(profesionales);
 		
 		for(Profesional p : profesionales) {
