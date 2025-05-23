@@ -19,12 +19,12 @@ class ExpresionBalanceada:
                 pila.append(c)
 
             elif self.es_de_cerrar(c):
-                if len(pila) == 0 or not self.son_parejita(c, pila.pop()):
+                if not pila or not self.son_parejita(c, pila.pop()):
                     return False
             else:
                 return False
 
-        return len(pila) == 0
+        return not pila
 
 
 def main():
