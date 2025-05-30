@@ -9,6 +9,9 @@
 !**/*.py
 !README.md
 !**/*.md
+!**/*.csv
+!**/*.txt
+!**/*.in
 
 # También permitir el archivo .gitignore
 !.gitignore
