@@ -1,5 +1,7 @@
 package circulo;
 
+import io.Punto;
+
 public class Circulo {
 
 	private double radio;
