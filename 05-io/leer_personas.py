@@ -49,7 +49,7 @@ def main():
         contador += 1
         cuantas_por_provincia[persona.provincia] = contador
 
-    with open("personas_por_rovincia.txt", "w", encoding="UTF-8") as archivo:
+    with open("personas_por_provincia.txt", "w", encoding="UTF-8") as archivo:
         for provincia, l_p in personas_por_provincia.items():
             archivo.write(f"Provincia: {provincia}")
             # sorted(l_p)
