@@ -1,5 +1,4 @@
 class EspectadoresPorEvento:
-
     def __init__(self):
         # self.__puertas = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         # self.__puertas = [0 for _ in range(15)]
@@ -21,6 +20,6 @@ class EspectadoresPorEvento:
     def __str__(self) -> str:
         s = "CTE:" + str(self.__cantidad_total_espectadores) + "\n"
         for i in range(14):
-            s += "Puerta " + str(i + 1) + ": " + str(self.__puertas[i]) + ", "
+            s += "Puerta " + str(i + 1) + ": " + str(self.__puertas[i]) + "\n"
         s += "Puerta " + str(15) + ": " + str(self.__puertas[14])
         return "\n" + s
