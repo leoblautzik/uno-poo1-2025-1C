@@ -63,7 +63,6 @@ public class GestionProductos {
 			Double val = entry.getValue();
 			if (val == max_valor)
 				return key;
-			
 		}
 		return "";
 
