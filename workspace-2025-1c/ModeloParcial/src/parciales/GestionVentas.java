@@ -22,16 +22,20 @@ public class GestionVentas {
 			String linea;
 			while ((linea = br.readLine()) != null) {
 				String[] datos = linea.split(",");
-				if (datos.length != 4) {
-					System.out.println("Línea mal formada: " + linea);
-					continue;
-				}
-				String cliente = datos[0].trim();
-				String producto = datos[1].trim();
-				int cantidad = Integer.parseInt(datos[2].trim());
-				double precio = Double.parseDouble(datos[3].trim());
+				try {
+					if (datos.length != 4) {
+						throw new LineaMalFormadaException();
+					}
+					String cliente = datos[0].trim();
+					String producto = datos[1].trim();
+					int cantidad = Integer.parseInt(datos[2].trim());
+					double precio = Double.parseDouble(datos[3].trim());
 
-				ventas.add(new Venta(cliente, producto, cantidad, precio));
+					ventas.add(new Venta(cliente, producto, cantidad, precio));
+				} catch (LineaMalFormadaException lmf) {
+
+					System.out.println("Error en la linea:  " + linea);
+				}
 			}
 		} catch (IOException e) {
 			System.out.println("Error leyendo el archivo: " + e.getMessage());
@@ -62,12 +66,12 @@ public class GestionVentas {
 		mayor = Collections.max(totales.values());
 		String clienteT = null;
 		for (Map.Entry<String, Double> entry : totales.entrySet()) {
-			if (entry.getValue() == mayor ) {
+			if (entry.getValue() == mayor) {
 				clienteT = entry.getKey();
 			}
 		}
 		return clienteT;
-		
+
 	}
 
 	public List<String> clientesTop() {
@@ -81,30 +85,30 @@ public class GestionVentas {
 		mayor = Collections.max(totales.values());
 		List<String> clientesT = new ArrayList<String>();
 		for (Map.Entry<String, Double> entry : totales.entrySet()) {
-			if (entry.getValue() == mayor ) {
+			if (entry.getValue() == mayor) {
 				clientesT.add(entry.getKey());
 			}
 		}
 		return clientesT;
-		
+
 	}
+
 	public String productoMasVendido() {
 		Map<String, Integer> cantidades = new HashMap<>();
 		for (Venta v : ventas) {
 			cantidades.put(v.getProducto(), cantidades.getOrDefault(v.getProducto(), 0) + v.getCantidad());
 		}
-		
+
 		Integer mayor = Collections.max(cantidades.values());
 		String productoMasVendido = null;
 		for (Map.Entry<String, Integer> entry : cantidades.entrySet()) {
-			if (entry.getValue() == mayor ) {
+			if (entry.getValue() == mayor) {
 				mayor = entry.getValue();
 				productoMasVendido = entry.getKey();
 			}
 		}
 		return productoMasVendido;
-		
-		
+
 	}
 
 	public static void main(String[] args) {
