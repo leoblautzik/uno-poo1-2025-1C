@@ -57,16 +57,19 @@ class GestionVentas:
             totales_por_cliente[venta.cliente] = (
                 totales_por_cliente.get(venta.cliente, 0) + venta.monto_total()
             )
-        cliente_t = max(totales_por_cliente, key=totales_por_cliente.get)
-        # cliente_t = None
-        # if totales_por_cliente:
-        #     mayor = float("-inf")
-        #     for cliente, monto in totales_por_cliente.items():
-        #         if monto > mayor:
-        #             mayor = monto
-        #             cliente_t = cliente
+        # cliente_t = max(totales_por_cliente, key=totales_por_cliente.get)
+        clientes_t = []
+        if totales_por_cliente:
+            # mayor = float("-inf")
+            # for monto in totales_por_cliente.values():
+            #     if monto > mayor:
+            #         mayor = monto
+            mayor = max(totales_por_cliente.values())
+            for cliente, monto in totales_por_cliente.items():
+                if monto == mayor:
+                    clientes_t.append(cliente)
 
-        return cliente_t
+        return clientes_t
 
     def producto_mas_vendido(self):
         contador = {}

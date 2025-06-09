@@ -1,13 +1,19 @@
 package parciales;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class GestionVentas {
 	private List<Venta> ventas;
 
 	public GestionVentas(String archivoVentas) {
-		ventas = new ArrayList<>();
+		ventas = new ArrayList<Venta>();
 		cargarVentas(archivoVentas);
 	}
 
@@ -15,15 +21,15 @@ public class GestionVentas {
 		try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
 			String linea;
 			while ((linea = br.readLine()) != null) {
-				String[] partes = linea.split(",");
-				if (partes.length != 4) {
+				String[] datos = linea.split(",");
+				if (datos.length != 4) {
 					System.out.println("Línea mal formada: " + linea);
 					continue;
 				}
-				String cliente = partes[0].trim();
-				String producto = partes[1].trim();
-				int cantidad = Integer.parseInt(partes[2].trim());
-				double precio = Double.parseDouble(partes[3].trim());
+				String cliente = datos[0].trim();
+				String producto = datos[1].trim();
+				int cantidad = Integer.parseInt(datos[2].trim());
+				double precio = Double.parseDouble(datos[3].trim());
 
 				ventas.add(new Venta(cliente, producto, cantidad, precio));
 			}
@@ -36,26 +42,69 @@ public class GestionVentas {
 
 	public Map<String, List<Venta>> ventasPorCliente() {
 		Map<String, List<Venta>> mapa = new HashMap<>();
+		List<Venta> l;
 		for (Venta v : ventas) {
-			mapa.computeIfAbsent(v.getCliente(), k -> new ArrayList<>()).add(v);
+			l = mapa.getOrDefault(v.getCliente(), new ArrayList<Venta>());
+			l.add(v);
+			mapa.put(v.getCliente(), l);
 		}
 		return mapa;
 	}
 
 	public String clienteTop() {
 		Map<String, Double> totales = new HashMap<>();
+		double total;
+		double mayor;
 		for (Venta v : ventas) {
-			totales.put(v.getCliente(), totales.getOrDefault(v.getCliente(), 0.0) + v.getMontoTotal());
+			total = totales.getOrDefault(v.getCliente(), 0.0) + v.getMontoTotal();
+			totales.put(v.getCliente(), total);
 		}
-		return totales.entrySet().stream().max(Map.Entry.comparingByValue()).map(Map.Entry::getKey).orElse(null);
+		mayor = Collections.max(totales.values());
+		String clienteT = null;
+		for (Map.Entry<String, Double> entry : totales.entrySet()) {
+			if (entry.getValue() == mayor ) {
+				clienteT = entry.getKey();
+			}
+		}
+		return clienteT;
+		
 	}
 
+	public List<String> clientesTop() {
+		Map<String, Double> totales = new HashMap<>();
+		double total;
+		double mayor;
+		for (Venta v : ventas) {
+			total = totales.getOrDefault(v.getCliente(), 0.0) + v.getMontoTotal();
+			totales.put(v.getCliente(), total);
+		}
+		mayor = Collections.max(totales.values());
+		List<String> clientesT = new ArrayList<String>();
+		for (Map.Entry<String, Double> entry : totales.entrySet()) {
+			if (entry.getValue() == mayor ) {
+				clientesT.add(entry.getKey());
+			}
+		}
+		return clientesT;
+		
+	}
 	public String productoMasVendido() {
 		Map<String, Integer> cantidades = new HashMap<>();
 		for (Venta v : ventas) {
 			cantidades.put(v.getProducto(), cantidades.getOrDefault(v.getProducto(), 0) + v.getCantidad());
 		}
-		return cantidades.entrySet().stream().max(Map.Entry.comparingByValue()).map(Map.Entry::getKey).orElse(null);
+		
+		Integer mayor = Collections.max(cantidades.values());
+		String productoMasVendido = null;
+		for (Map.Entry<String, Integer> entry : cantidades.entrySet()) {
+			if (entry.getValue() == mayor ) {
+				mayor = entry.getValue();
+				productoMasVendido = entry.getKey();
+			}
+		}
+		return productoMasVendido;
+		
+		
 	}
 
 	public static void main(String[] args) {
@@ -71,6 +120,7 @@ public class GestionVentas {
 		}
 
 		System.out.println("\nCliente top: " + gestion.clienteTop());
+		System.out.println("\nClientes top: " + gestion.clientesTop());
 		System.out.println("Producto más vendido: " + gestion.productoMasVendido());
 	}
 }
