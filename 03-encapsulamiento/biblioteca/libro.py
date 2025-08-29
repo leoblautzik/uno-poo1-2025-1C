@@ -10,22 +10,26 @@ class Libro:
         self.__genero = genero
         self.__paginas = paginas
 
-    def obtener_titulo(self):
+    @property
+    def titulo(self):
         return self.__titulo
 
-    def obtener_paginas(self):
+    @property
+    def paginas(self):
         return self.__paginas
 
-    def obtener_autor(self):
+    @property
+    def autor(self):
         return self.__autor
 
-    def obtener_genero(self):
+    @property
+    def genero(self):
         return self.__genero
 
     def __eq__(self, other):
         return (
-            self.__titulo == other.obtener_titulo()
-            and self.__autor == other.obtener_autor()
-            and self.__genero == other.obtener_genero()
-            and self.__paginas == other.obtener_paginas()
+            self.__titulo == other.titulo
+            and self.__autor == other.autor
+            and self.__genero == other.genero
+            and self.__paginas == other.paginas
         )

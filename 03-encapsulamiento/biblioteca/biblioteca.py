@@ -17,16 +17,16 @@ class Biblioteca:
 
     def libro_en_la_posicion(self, posicion):
         """Devuelve el título de un libro a partir de la posición."""
-        return self.__libros[posicion - 1].obtener_titulo()
+        return self.__libros[posicion - 1].titulo
 
     def libro_con_mas_paginas(self) -> Libro:
         """Devuelva el libro con más cantidad de páginas."""
         pos_max = 0
-        max_pag = self.__libros[0].obtener_paginas()
+        max_pag = self.__libros[0].paginas
         for i in range(1, len(self.__libros)):
-            if self.__libros[i].obtener_paginas() > max_pag:
+            if self.__libros[i].paginas > max_pag:
                 pos_max = i
-                max_pag = self.__libros[i].obtener_paginas()
+                max_pag = self.__libros[i].paginas
         return self.__libros[pos_max]
 
 

@@ -15,7 +15,8 @@ from punto import Punto
 
 
 class CoronaCircular:
-    """Modela una corona circular a partir de la clase Circulo con un Punto como centro"""
+    """Modela una corona circular a partir de la clase Circulo
+    con un Punto como centro"""
 
     def __init__(self, ri, re, xc, yc, color):
         self.__ci = Circulo(ri, xc, yc, color)
@@ -35,7 +36,7 @@ class CoronaCircular:
         """Devuelve el perimetro interior"""
         return self.__ci.perimetro()
 
-    def perimetro_exterior(self):
+    def perimetro_exterior(self) -> float:
         """Devuelve el perimetro exterior"""
         return self.__ce.perimetro()
 

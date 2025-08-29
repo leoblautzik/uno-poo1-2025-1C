@@ -1,0 +1,141 @@
+Clase CuentaBancaria
+Crear una clase que represente una cuenta bancaria con los atributos privados:
+
+__titular (nombre del dueño)
+
+__saldo (saldo inicial)
+
+Métodos públicos:
+
+depositar(monto) → aumenta el saldo
+
+retirar(monto) → disminuye el saldo solo si hay fondos suficientes
+
+mostrar_saldo() → devuelve el saldo actual
+
+Validar que el saldo nunca sea negativo desde afuera.
+
+2️⃣ Clase Empleado
+Atributos privados:
+
+__nombre
+
+__salario
+
+Métodos públicos:
+
+get_nombre() y get_salario()
+
+set_salario(nuevo_salario) → solo acepta valores positivos
+
+Bonus: agregar un método aumentar_salario(porcentaje) que modifique el salario de forma segura.
+
+3️⃣ Clase Rectangulo
+Atributos privados:
+
+__ancho
+
+__alto
+
+Métodos públicos:
+
+area() → devuelve el área
+
+perimetro() → devuelve el perímetro
+
+set_ancho(nuevo_ancho) y set_alto(nuevo_alto) → solo valores positivos
+
+Evitar que desde afuera se pueda asignar valores inválidos directamente.
+
+4️⃣ Clase Alumno
+Atributos privados:
+
+__nombre
+
+__notas (lista de números)
+
+Métodos públicos:
+
+agregar_nota(nota) → agrega una nota válida entre 0 y 10
+
+promedio() → devuelve el promedio de las notas
+
+Bonus: impedir que se pueda modificar directamente __notas desde fuera.
+
+5️⃣ Clase Producto
+Atributos privados:
+
+__nombre
+
+__precio
+
+__stock
+
+Métodos públicos:
+
+set_precio(nuevo_precio) → solo valores positivos
+
+vender(cantidad) → decrementa el stock si hay suficiente
+
+reponer(cantidad) → incrementa el stock
+
+mostrar_info() → devuelve nombre, precio y stock de manera segura
+
+1️⃣ Clase Auto con Motor
+Crear una clase Motor con métodos privados para encender y apagar.
+
+La clase Auto debe tener un atributo privado __motor.
+
+El Auto expone métodos públicos arrancar() y detener(), que delegan la acción en su Motor.
+
+Validar que no se pueda encender dos veces seguidas.
+
+2️⃣ Clase Biblioteca con Catalogo
+Clase Catalogo mantiene una lista privada de libros.
+
+Clase Biblioteca contiene un objeto Catalogo y ofrece métodos:
+
+agregar_libro(libro)
+
+buscar_libro(titulo)
+
+La Biblioteca no expone el Catalogo directamente: todas las operaciones deben pasar por sus propios métodos.
+
+3️⃣ Clase CuentaBancaria con Historial
+Clase Historial guarda una lista privada de transacciones.
+
+Clase CuentaBancaria tiene un atributo privado __historial y métodos:
+
+depositar(monto) → agrega movimiento al historial
+
+retirar(monto) → idem, pero solo si hay saldo suficiente
+
+ver_historial() → devuelve una copia del historial (no el original).
+
+4️⃣ Clase CarritoCompras con Producto
+Clase Producto con atributos privados __nombre y __precio.
+
+Clase CarritoCompras contiene una colección privada de Producto.
+
+Métodos públicos en CarritoCompras:
+
+agregar_producto(nombre, precio)
+
+total() → suma precios delegando en cada producto
+
+mostrar_productos() → lista nombres y precios.
+
+5️⃣ Clase Alumno con Notas
+Clase Notas almacena y valida calificaciones (0–10).
+
+Clase Alumno tiene un atributo privado __notas.
+
+Métodos públicos en Alumno:
+
+agregar_nota(valor) → delega validación a Notas
+
+promedio() → calcula a partir de las notas
+
+mostrar_notas() → devuelve la lista (copia) de notas.
+
+
