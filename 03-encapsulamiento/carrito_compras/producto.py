@@ -23,12 +23,12 @@ class Producto:
         self.__stock += cantidad
 
     def descontar_stock(self, cantidad):
-        if cantidad <= self.stock:
+        if self.stock < cantidad:
             raise ValueError("Stock insuficiente")
         self.__stock -= cantidad
 
     def __repr__(self):
-        return f"{self.nombre} \t ${self.precio} \t stock: {self.stock}"
+        return f"{self.nombre:20}  ${self.precio} stock: {self.stock}"
 
 
 def main():
