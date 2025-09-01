@@ -2,10 +2,10 @@ from producto import Producto
 
 
 class CarritoCompras:
-    def __init__(self):
-        self.__productos = {}
+    def __init__(self) -> None:
+        self.__productos: dict[Producto, int] = {}
 
-    def agregar_producto(self, p: Producto, cantidad: int):
+    def agregar_producto(self, p: Producto, cantidad: int) -> None:
         if p.stock < cantidad:
             raise ValueError("Stock insuficiente")
         self.__productos[p] = cantidad
@@ -17,7 +17,7 @@ class CarritoCompras:
 
         return total
 
-    def comprar_carrito(self):
+    def comprar_carrito(self) -> None:
         for p, c in self.__productos.items():
             p.descontar_stock(c)
 

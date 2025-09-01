@@ -138,4 +138,27 @@ promedio() → calcula a partir de las notas
 
 mostrar_notas() → devuelve la lista (copia) de notas.
 
+📘 Consigna
 
+Se desea modelar un sistema básico de pedidos en un restaurante.
+
+Crear un enum llamado CategoriaPlato con las siguientes categorías: ENTRADA, PRINCIPAL, POSTRE, BEBIDA.
+
+Definir una clase Plato que tenga los siguientes atributos privados:
+
+__nombre (str)
+
+__precio (float)
+
+__categoria (CategoriaPlato)
+Incluye métodos getters y setters controlados (ejemplo: validar que el precio sea positivo).
+
+Definir una clase Pedido que use composición para mantener una lista de platos (Plato).
+
+Método agregar_plato(plato: Plato) para añadir un plato al pedido.
+
+Método calcular_total() que devuelva la suma de los precios.
+
+Método resumen() que muestre todos los platos del pedido con su categoría y precio.
+
+Probar el sistema creando algunos platos y armando un pedido con varios de ellos.
