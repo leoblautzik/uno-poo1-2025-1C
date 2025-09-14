@@ -1,3 +1,4 @@
+from __future__ import annotations
 import math
 
 from color import Color
@@ -5,10 +6,9 @@ from punto import Punto
 
 
 class Circulo:
-    def __init__(self, radio, xc, yc, color: Color):
+    def __init__(self, centro: Punto, radio: float):
         self.__radio = radio
-        self.__centro = Punto(xc, yc)
-        self.__color = color
+        self.__centro = centro
 
     @property
     def radio(self):
@@ -38,10 +38,13 @@ class Circulo:
         return 2 * self.radio
 
     def __repr__(self):
-        return f"Soy un circulo de radio {self.radio} y color {self.__color.name}"
+        return f"Soy un circulo de radio {self.radio}"
 
     def desplazar(self, en_x, en_y):
         self.centro.desplazar(en_x, en_y)
+
+    def intersecta_con(self, otro: Circulo) -> bool:
+        return self.centro.distancia(otro.centro) <= self.radio + otro.radio
 
 
 def main():
