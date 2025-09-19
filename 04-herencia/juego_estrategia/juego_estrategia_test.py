@@ -15,8 +15,9 @@ class TestUnidades(unittest.TestCase):
         # Distancia = 2 → debería ser False
         self.assertFalse(self.soldado.puede_atacar(self.lancero))
         # Muevo al lancero para que esté a distancia 1
-        self.lancero.posicion = 1
-        self.assertTrue(self.soldado.puede_atacar(self.lancero))
+        self.lancero.posicion = 2
+        self.assertFalse(self.soldado.puede_atacar(self.lancero))
+        self.assertTrue(self.lancero.puede_atacar(self.soldado))
 
     def test_arquero_distancia_correcta(self):
         # Distancia = 2 → válido

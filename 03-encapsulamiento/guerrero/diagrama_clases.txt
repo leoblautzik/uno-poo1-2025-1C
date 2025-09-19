@@ -1,0 +1,57 @@
+
+                  ┌────────────────────┐
+                  │     Guerrero       │
+                  ├────────────────────┤
+                  │ - nombre: str      │
+                  │ - energia: int     │
+                  │ - salud: int       │
+                  │ - costo_ataque: int│
+                  │ - danio: int       │
+                  │ - energia_max: int │
+                  ├────────────────────┤
+                  │ + atacar(otro)     │
+                  │ + recibir_racion() │
+                  │ + esta_derrotado() │
+                  │ + estado(): str    │
+                  └─────────▲──────────┘
+                            │
+            ┌───────────────┴───────────────┐
+            │                               │
+    ┌────────────────────┐        ┌────────────────────┐
+    │      Soldado       │        │        Orco        │
+    ├────────────────────┤        ├────────────────────┤
+    │ energia = 100      │        │ energia = 120      │
+    │ salud = 200        │        │ salud = 250        │
+    │ costo_ataque = 10  │        │ costo_ataque = 15  │
+    │ danio = 10         │        │ danio = 20         │
+    │ energia_max = 100  │        │ energia_max = 120  │
+    └────────────────────┘        └────────────────────┘
+
+                  ┌────────────────────┐
+                  │     Guerrero       │
+                  ├────────────────────┤
+                  │ - nombre: str      │
+                  │ - energia: int     │
+                  │ - salud: int       │
+                  │ - costo_ataque: int│
+                  │ - danio: int       │
+                  │ - energia_max: int │
+                  ├────────────────────┤
+                  │ + atacar(otro)     │
+                  │ + recibir_racion() │
+                  │ + esta_derrotado() │
+                  │ + estado(): str    │
+                  └─────────▲──────────┘
+                            │
+            ┌───────────────┼────────────────┐───────────────┐
+            │                                │               │
+    ┌────────────────────┐  ┌────────────────────┐   ┌────────────────────┐
+    │      Soldado       │  │        Orco        │   │        Elfo        │
+    ├────────────────────┤  ├────────────────────┤   ├────────────────────┤
+    │ energia = 100      │  │ energia = 120      │   │ energia = 80       │
+    │ salud = 200        │  │ salud = 250        │   │ salud = 150        │
+    │ costo_ataque = 10  │  │ costo_ataque = 15  │   │ costo_ataque = 5   │
+    │ danio = 10         │  │ danio = 20         │   │ danio = 15         │
+    │ energia_max = 100  │  │ energia_max = 120  │   │ energia_max = 80   │
+    └────────────────────┘  └────────────────────┘   └────────────────────┘
+

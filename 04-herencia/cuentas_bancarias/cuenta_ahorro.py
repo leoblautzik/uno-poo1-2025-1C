@@ -37,5 +37,13 @@ class CajaDeAhorro(Cuenta):
     def get_dinero_disponible(self) -> float:
         return super().consultar_saldo() + self.get_reserva()
 
+    def extraer(self, monto) -> float:
+        if self.hay_dinero_suficiente(monto):
+            if not self.consultar_saldo() >= monto:
+                self.recuperar(monto - self.consultar_saldo())
+            super().extraer(monto)
+
+        return monto
+
     def __str__(self) -> str:
         return super().__str__() + ", Reserva: " + str(self.__reserva)

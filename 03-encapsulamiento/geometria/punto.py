@@ -1,8 +1,8 @@
-"""Defina una clase Punto que tendrá dos atributos, de tipo float, x e y, que representarán las coordenadas del punto dentro del plano."""
+"""Defina una clase Punto que tendrá dos atributos, de tipo float, x e y,
+que representarán las coordenadas del punto dentro del plano."""
 
 from __future__ import annotations
-
-import math
+from math import hypot, sqrt
 
 
 class Punto:
@@ -31,21 +31,22 @@ class Punto:
         return self.__x == 0
 
     def es_el_origen(self) -> bool:
-        """Devuelve True o False si el punto es o no, el oigen de coordenadas"""
+        """Devuelve True o False si el punto es o no,
+        el oigen de coordenadas"""
         return self.esta_sobre_eje_x() and self.esta_sobre_eje_y()
 
     def distancia_al_origen(self) -> float:
         """Devuelve la distancia del punto al origen de coordenadas"""
-        return math.hypot(self.__x, self.__y)
+        return hypot(self.__x, self.__y)
 
     def distancia(self, p: "Punto") -> float:
         """Calcula la distancia desde este punto hasta otro."""
-        return math.hypot(self.x - p.x, self.y - p.y)
+        return hypot(self.x - p.x, self.y - p.y)
 
     @staticmethod
     def distancia_entre_puntos(a: Punto, b: Punto) -> float:
         """Calcula la distancia desde el punto a hasta el punto b."""
-        return math.hypot(a.x - b.x, a.y - b.y)
+        return hypot(a.x - b.x, a.y - b.y)
 
     def desplazar(self, en_x, en_y):
         self.__x += en_x
@@ -63,8 +64,11 @@ def main():
     print(p1.distancia(p2))
     print(p2.distancia(p1))
     print(Punto.distancia_entre_puntos(p1, p2))
+    print(Punto.distancia_entre_puntos(p2, p1))
 
     print(p1)
+
+    print(sqrt(4))
 
 
 if __name__ == "__main__":

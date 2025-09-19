@@ -1,5 +1,6 @@
 import unittest
-from nave import Caza, Bombardero, Crucero
+
+from nave import Bombardero, Caza, Crucero
 
 
 class TestCombateNaves(unittest.TestCase):
@@ -17,7 +18,7 @@ class TestCombateNaves(unittest.TestCase):
         self.assertTrue(victima.esta_destruida())
         self.assertEqual(victima.salud, 0)
 
-    def test_bombardero_ataca_y_se_autodaña(self):
+    def test_bombardero_ataca_y_se_autodania(self):
         b = Bombardero("TIE Bomber")
         c = Caza("X-Wing")
         b.atacar(c)

@@ -1,4 +1,4 @@
-from nave import Nave, Caza, Blindado, Bombardero, BombarderoBlindado
+from nave import Blindado, Bombardero, BombarderoBlindado, Caza, Nave
 
 
 class Artilugio(Nave):
@@ -23,7 +23,7 @@ class Artilugio(Nave):
 
     @salud.setter
     def salud(self, s):
-        self.__nave.salud = s
+        self.__nave.salud= s
 
     def atacar(self, otra):
         self.nave.atacar(otra)
@@ -50,7 +50,7 @@ class ArtilugioCamuflado(Artilugio):
         # puede esquivar el ataque
         if self.esquivar():
             self.__ataques_esquivados += 1
-            return  # esquivó, no recibe daño
+            return  # esqivó, no recibe daño
         self.salud -= atacante.danio
         if self.salud < 0:
             self.salud = 0

@@ -1,14 +1,24 @@
 """Un banco contiene las Cuentas de sus clientes.
-Las cuentas de ahorro no pueden tener números rojos.
-Las cuentas corrientes pueden girar en descubierto hasta  un monto
+
+*Las cuentas de ahorro no pueden tener números rojos.
+
+*Las cuentas corrientes pueden girar en descubierto hasta  un monto
 que se define al momento de su creación.
-Define Cuenta de forma que no pueda instanciarse.
-De toda Cuenta se debe poder ingresar y retirar dinero,
-preguntar por el saldo, por el DNI del titular y debe tener un método toString()
-que devuelva al menos el saldo y el DNI del titular.
-Implementar las clases CuentaCorriente y CuentaDeAhorro como una especialización de Cuenta.
-De una cuenta se debe poder transferir dinero a otra cuenta (si tiene dinero disponible).
-Implementa la clase Banco que contiene una colección de Cuentas, incluye los métodos:
+
+*Define Cuenta de forma que no pueda instanciarse.
+
+*De toda Cuenta se debe poder ingresar y retirar dinero,
+preguntar por el saldo, por el DNI del titular y debe tener un
+método toString() que devuelva al menos el saldo y el DNI del titular.
+
+*Implementar las clases CuentaCorriente y CuentaDeAhorro
+como una especialización de Cuenta.
+
+*De una cuenta se debe poder transferir dinero a otra cuenta
+(si tiene dinero disponible).
+
+*Implementa la clase Banco que contiene una colección de Cuentas,
+incluye los métodos:
 public Cuenta abrirCuentaCorriente(int dni, double descubierto){}
 public Cuenta abrirCajaDeAhorro(int dni){}
 public double totalSaldoEnDescubierto(){}
@@ -54,19 +64,16 @@ class Cuenta(ABC):
 
     @abstractmethod
     def get_dinero_disponible(self) -> float:
-        """Devuelve el total del dinero del que dispone el titular de la cuenta"""
+        """Devuelve el total del dinero del que
+        dispone el titular de la cuenta"""
 
-    def extraer(self, monto) -> float:
+    def extraer(self, monto):
         """de todas las cuentas se debe poder extraer dinero,
         si hay dinero suficiente. No tiene el mismo comportamiento
         para cuentas de ahorro que para cuentas corrientes"""
+        self.__saldo -= monto
 
-        platita = 0
-        if self.hay_dinero_suficiente(monto):
-            self.__saldo -= monto
-            platita = monto
-
-        return platita
+        return 0
 
     def depositar(self, monto):
         """Incrementa el saldo en el monto que se pasa por parametro"""
@@ -82,4 +89,4 @@ class Cuenta(ABC):
             destino.depositar(monto)
 
     def __repr__(self) -> str:
-        return "Titular: " + str(self.__titular) + ", Saldo: " + str(self.__saldo)
+        return f"Titular: {str(self.__titular)}, Saldo: {str(self.__saldo)}"
