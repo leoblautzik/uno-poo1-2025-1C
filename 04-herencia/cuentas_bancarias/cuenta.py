@@ -40,7 +40,7 @@ class Cuenta(ABC):
     """
 
     def __init__(self, titular):
-        self.__saldo = 0.00
+        self._saldo = 0.00
         self.__titular = titular
 
     def obtener_titular(self):
@@ -51,7 +51,7 @@ class Cuenta(ABC):
     def consultar_saldo(self) -> float:
         """devuelve el saldo de la cuenta"""
 
-        return self.__saldo
+        return self._saldo
 
     # def set_saldo(self, s):
     #     """Establece el saldo en s"""
@@ -67,11 +67,12 @@ class Cuenta(ABC):
         """Devuelve el total del dinero del que
         dispone el titular de la cuenta"""
 
-    def extraer(self, monto):
-        """de todas las cuentas se debe poder extraer dinero,
-        si hay dinero suficiente. No tiene el mismo comportamiento
-        para cuentas de ahorro que para cuentas corrientes"""
-        self.__saldo -= monto
+    @abstractmethod
+    def extraer(self, monto) -> float:
+        #     """de todas las cuentas se debe poder extraer dinero,
+        #     si hay dinero suficiente. No tiene el mismo comportamiento
+        #     para cuentas de ahorro que para cuentas corrientes"""
+        #     self.__saldo -= monto
 
         return 0
 
@@ -80,7 +81,7 @@ class Cuenta(ABC):
 
         if monto <= 0:
             raise ValueError("Monto incorrecto")
-        self.__saldo += monto
+        self._saldo += monto
 
     def transferir(self, destino: Cuenta, monto: float):
         """Transfiere el monto desde la cuenta self a la cuenta destino"""
@@ -89,4 +90,4 @@ class Cuenta(ABC):
             destino.depositar(monto)
 
     def __repr__(self) -> str:
-        return f"Titular: {str(self.__titular)}, Saldo: {str(self.__saldo)}"
+        return f"Titular: {str(self.__titular)}, Saldo: {str(self._saldo)}"

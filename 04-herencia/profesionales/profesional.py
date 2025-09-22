@@ -4,14 +4,6 @@ from abc import ABCMeta, abstractmethod
 class Profesional(metaclass=ABCMeta):
     __honorario_basico = 500000
 
-    def __init__(self, nombre, apellido):
-        self.nombre = nombre
-        self.apellido = apellido
-
-    @abstractmethod
-    def calcular_honorario(self):
-        pass
-
     @classmethod
     def set_honorario_basico(cls, nuevo_valor):
         cls.__honorario_basico = nuevo_valor
@@ -19,6 +11,14 @@ class Profesional(metaclass=ABCMeta):
     @classmethod
     def get_honorario_basico(cls):
         return cls.__honorario_basico
+
+    def __init__(self, nombre, apellido):
+        self.nombre = nombre
+        self.apellido = apellido
+
+    @abstractmethod
+    def calcular_honorario(self):
+        pass
 
     # Comparación basada en honorarios
     def __lt__(self, other):
@@ -65,7 +65,10 @@ def main():
         CirujanoCardiovascular("Laura", "Pérez"),
     ]
 
-    total = sum(p.calcular_honorario() for p in profesionales)
+    total = 0
+    for p in profesionales:
+        total += p.calcular_honorario()
+
     print(f"\nTotal a abonar: ${total:,.2f}\n")
 
     Profesional.set_honorario_basico(1200000)

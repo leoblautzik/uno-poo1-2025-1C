@@ -43,8 +43,8 @@ class Nave:
     def atacar(self, otra: Nave) -> None:
         pass
 
-    def recibir_danio(self, otra: Nave) -> None:
-        self.salud -= otra.danio
+    def recibir_danio(self, atacante: Nave) -> None:
+        self.salud -= atacante.danio
         if self.salud < 0:
             self.salud = 0
 
@@ -108,6 +108,16 @@ class BombarderoBlindado(Bombardero, Blindado):
 
 
 class CazaCamuflado(Caza, Camuflado):
+    def recibir_danio(self, atacante: "Nave") -> None:
+        # puede esquivar el ataque
+        if self.esquivar():
+            return  # esquivó, no recibe daño
+        self.salud -= atacante.danio
+        if self.salud < 0:
+            self.salud = 0
+
+
+class BombarderoCamuflado(Bombardero, Camuflado):
     def recibir_danio(self, atacante: "Nave") -> None:
         # puede esquivar el ataque
         if self.esquivar():

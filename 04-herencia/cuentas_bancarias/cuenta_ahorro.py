@@ -41,7 +41,7 @@ class CajaDeAhorro(Cuenta):
         if self.hay_dinero_suficiente(monto):
             if not self.consultar_saldo() >= monto:
                 self.recuperar(monto - self.consultar_saldo())
-            super().extraer(monto)
+            self._saldo -= monto
 
         return monto
 

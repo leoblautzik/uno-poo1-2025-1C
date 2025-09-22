@@ -40,7 +40,7 @@ class Banco:
         en descubierto"""
         for c in self.__cuentas:
             if isinstance(c, CuentaCorriente):
-                if c.get_saldo() < 0:
+                if c.consultar_saldo() < 0:
                     print(c)
 
 

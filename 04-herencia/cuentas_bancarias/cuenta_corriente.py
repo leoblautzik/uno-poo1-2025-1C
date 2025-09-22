@@ -26,7 +26,7 @@ class CuentaCorriente(Cuenta):
     def extraer(self, monto) -> float:
         if self.hay_dinero_suficiente(monto):
             if self.get_dinero_disponible() >= monto:
-                super().extraer(monto)
+                self._saldo -= monto
         return monto
 
     def __str__(self) -> str:
