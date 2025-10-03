@@ -13,6 +13,9 @@ class CuentaDePrestamo:
     def __init__(self):
         self.__libros_prestados: list[Libro] = []
 
+    def get_libros_prestados(self) -> list[Libro]:
+        return self.__libros_prestados
+
     def prestar(self, libro: Libro):
         if libro.puedo_prestar() and len(self.__libros_prestados) < 3:
             libro.prestar()

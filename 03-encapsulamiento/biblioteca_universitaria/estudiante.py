@@ -7,8 +7,12 @@ class Estudiante:
     CuentaDePrestamo, no heredar de ella.
     """
 
-    def __init__(self):
+    def __init__(self, nombre: str):
+        self.__nombre = nombre
         self.__cuenta_prestamo = CuentaDePrestamo()
+
+    def get_nombre(self):
+        return self.__nombre
 
     def prestar_libro(self, libro: Libro):
         self.__cuenta_prestamo.prestar(libro)
@@ -17,29 +21,17 @@ class Estudiante:
         self.__cuenta_prestamo.devolver(libro)
 
     def __str__(self) -> str:
-        return self.__cuenta_prestamo.__str__()
+        return self.__nombre + self.__cuenta_prestamo.__str__()
+
+    def __repr__(self) -> str:
+        return self.__nombre + self.__cuenta_prestamo.__str__()
+
+    def libros_prestados(self) -> list[Libro]:
+        return self.__cuenta_prestamo.get_libros_prestados()
 
 
 def main():
-    l1 = Libro("T1", "A1", 12223, 1)
-    l2 = Libro("T2", "A2", 12443, 2)
-    l3 = Libro("T3", "A3", 11123, 3)
-    l4 = Libro("T4", "A4", 15553, 2)
-    pepito = Estudiante()
-
-    print(l1)
-    pepito.prestar_libro(l1)
-    print(l1)
-    pepito.prestar_libro(l2)
-    pepito.prestar_libro(l3)
-    pepito.prestar_libro(l4)
-
-    print(pepito)
-
-    pepito.devolver_libro(l1)
-    pepito.prestar_libro(l4)
-
-    print(pepito)
+    pass
 
 
 if __name__ == "__main__":

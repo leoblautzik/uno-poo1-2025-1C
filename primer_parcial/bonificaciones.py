@@ -24,6 +24,9 @@ class Empleado:
     def calcular_salario(self):
         return self.get_salario_base() + self.calcular_bonificacion()
 
+    def __str__(self):
+        return f"{self.__nombre}, {self.__dni}"
+
 
 class Gerente(Empleado):
     def calcular_bonificacion(self):
@@ -36,23 +39,18 @@ class Desarrollador(Empleado):
 
 
 class Empresa:
-    def __init__(self):
-        self.empleados = []
-
-    def agregar_empleado(self, e):
-        self.empleados.append(e)
-
-    def mostrar_bonificaciones(empleados):
+    @classmethod
+    def mostrar_bonificaciones(cls, empleados):
         for emp in empleados:
-            print(
-                f"Nombre: {emp.get_nombre()} - Bonificación: ${
-                    emp.calcular_bonificacion():.2f}"
-            )
+            print(f"{emp} -> Bonificación: ${emp.calcular_bonificacion():.2f}")
 
-    def imprimir_salarios(self):
+    @classmethod
+    def imprimir_salarios(cls, empleados):
         resultados = []
-        for e in self.empleados:
-            resultados.append((e.get_nombre(), e.calcular_salario()))
+        for e in empleados:
+            resultados.append(
+                ("Nombre:", e.get_nombre(), "Salario", e.calcular_salario())
+            )
         return resultados
 
 
@@ -64,6 +62,7 @@ def main():
         Empleado("Marta Ruiz", 70000, "34567890"),
     ]
     Empresa.mostrar_bonificaciones(empleados)
+    print(Empresa.imprimir_salarios(empleados))
 
 
 if __name__ == "__main__":

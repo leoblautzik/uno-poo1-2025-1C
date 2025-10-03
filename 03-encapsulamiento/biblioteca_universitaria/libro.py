@@ -7,7 +7,7 @@ class Libro:
     def __init__(self, titulo, autor, ISBN, ejemplares_disponibles):
         self.__titulo = titulo
         self.__autor = autor
-        self.__ISBN = ISBN
+        self.__isbn = ISBN
         self.__ejemplares_disponibles = ejemplares_disponibles
         self.__ejemplares_prestados = 0
 
@@ -22,7 +22,21 @@ class Libro:
         return self.__ejemplares_prestados < self.__ejemplares_disponibles
 
     def __str__(self):
-        return f"{self.__titulo}, {self.__autor}, eje. disp:{self.__ejemplares_disponibles - self.__ejemplares_prestados}"
+        return f"{self.__titulo}, {self.__autor}, ejemp_disp:{self.__ejemplares_disponibles - self.__ejemplares_prestados}"
+
+    def get_isbn(self) -> str:
+        return self.__isbn
+
+    def __eq__(self, other):
+        if not isinstance(other, Libro):
+            return False
+        return self.__isbn == other.__isbn
+
+    def __hash__(self):
+        return hash(self.__isbn)
+
+    def __repr__(self):
+        return f"Libro({self.__titulo}, {self.__autor}, {self.__isbn})"
 
 
 def main():
