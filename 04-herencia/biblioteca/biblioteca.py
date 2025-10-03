@@ -2,10 +2,11 @@
 # Ejercicio: Sistema de Biblioteca Virtual
 # -----------------------------
 from __future__ import annotations
+from abc import ABC
 
 
 # Clase base
-class Material:
+class Material(ABC):
     def __init__(self, titulo: str, autor: str, anio: int):
         # Atributos privados
         self.__titulo = titulo

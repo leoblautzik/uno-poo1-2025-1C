@@ -1,4 +1,4 @@
-from nave import Blindado, Bombardero, BombarderoBlindado, Caza, Nave
+from nave import Bombardero, BombarderoBlindado, Caza, Nave
 
 
 class Artilugio(Nave):
@@ -13,6 +13,10 @@ class Artilugio(Nave):
     def danio(self):
         return self.__nave.danio
 
+    @danio.setter
+    def danio(self, d):
+        self.__nave.danio = d
+
     @property
     def nombre(self):
         return self.__nave.nombre
@@ -23,7 +27,7 @@ class Artilugio(Nave):
 
     @salud.setter
     def salud(self, s):
-        self.__nave.salud= s
+        self.__nave.salud = s
 
     def atacar(self, otra):
         self.nave.atacar(otra)
@@ -57,13 +61,14 @@ class ArtilugioCamuflado(Artilugio):
 
     def estado(self) -> str:
         return (
-            f"{self.nave.estado()} -> Ataques esquivados: {self.__ataques_esquivados}"
+            f"{self.nave.estado()} -> "
+            f"Ataques esquivados: {self.__ataques_esquivados}"
         )
 
 
 class ArtilugioRecargado(Artilugio):
     def atacar(self, otra):
-        self.nave.danio = self.nave.danio * 1.25
+        self.danio = self.danio * 1.25
         self.nave.atacar(otra)
 
 

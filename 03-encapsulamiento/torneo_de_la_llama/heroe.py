@@ -56,4 +56,4 @@ class Heroe:
         return self.poder_de_fuego() < other.poder_de_fuego()
 
     def __eq__(self, other):
-        retur self.nombre == other.nombre and self.__items == other.__items
+        return self.nombre == other.nombre and self.__items == other.__items

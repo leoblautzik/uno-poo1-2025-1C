@@ -29,7 +29,7 @@ class Soldado(Unidad):
         super().__init__(salud=200, danio=10, posicion=posicion)
         self.energia = 100
 
-    def puede_atacar(self, objetivo: Unidad):
+    def puede_atacar(self, objetivo: Unidad) -> bool:
         # Ejemplo: distancia == 0 y energía suficiente,
         # no esta muerto, y el oponente tampoco
         return (
@@ -53,7 +53,7 @@ class Arquero(Unidad):
         super().__init__(salud=50, danio=5, posicion=posicion)
         self.flechas = 20
 
-    def puede_atacar(self, objetivo: Unidad):
+    def puede_atacar(self, objetivo: Unidad) -> bool:
         # Ejemplo: 2 <= distancia <= 5 y flechas > 0
         distancia = math.fabs(self.posicion - objetivo.posicion)
         return (
@@ -76,7 +76,7 @@ class Lancero(Unidad):
     def __init__(self, posicion):
         super().__init__(salud=150, danio=25, posicion=posicion)
 
-    def puede_atacar(self, objetivo: Unidad):
+    def puede_atacar(self, objetivo: Unidad) -> bool:
         # Ejemplo: 1 <= distancia <= 3
         distancia = self.posicion - objetivo.posicion
         return (
@@ -92,31 +92,46 @@ class Lancero(Unidad):
 
 
 class Caballero(Unidad):
-    def __init__(self, posicion):
+    def __init__(self, posicion, caballo):
         super().__init__(salud=200, danio=50, posicion=posicion)
-        self.ataques_realizados = 0
-        self.caballo_rebelde = False
+        self.caballo = caballo
 
-    def puede_atacar(self, objetivo):
-        # Ejemplo: 1 <= distancia <= 2 y caballo no rebelde
-        pass
+    def puede_atacar(self, objetivo: Unidad) -> bool:
+        distancia = self.posicion - objetivo.posicion
+        return 1 <= distancia <= 2 and not self.caballo.esta_rebelde()
 
     def atacar(self, objetivo):
-        pass
+        self.caballo.contar_ataques()
 
     def recibir_agua(self):
-        pass
+        self.caballo.recibir_racion_agua()
+
+
+class Caballo:
+    def __init__(self):
+        self.__ataques_realizados = 0
+        # self.__rebelde = False
+
+    def recibir_racion_agua(self):
+        self.__ataques_realizados = 0
+
+    def contar_ataques(self):
+        if not self.esta_rebelde():
+            self.__ataques_realizados += 1
+
+    def esta_rebelde(self):
+        return self.__ataques_realizados < 3
 
 
 class Escudo(Unidad):
     def __init__(self, unidad: Unidad):
-        self.unidad = unidad
+        self.unidad: Unidad = unidad
         self.posicion = unidad.posicion
 
     def atacar(self, objetivo: Unidad):
         self.unidad.atacar(objetivo)
 
-    def puede_atacar(self, objetivo):
+    def puede_atacar(self, objetivo: Unidad) -> bool:
         self.unidad.puede_atacar(objetivo)
 
     def recibir_ataque(self, atacante):
@@ -125,13 +140,3 @@ class Escudo(Unidad):
 
     def esta_viva(self):
         return self.unidad.esta_viva()
-
-
-rambo = Soldado(0)
-conan = Lancero(1)
-rambo_con_escudo = Escudo(Soldado(0))
-conan.atacar(rambo)
-conan.atacar(rambo_con_escudo)
-print(rambo.salud)
-print(rambo_con_escudo.unidad.salud)
-rambo_con_escudo.atacar(conan)

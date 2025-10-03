@@ -71,7 +71,12 @@ class Heroe:
         return self.poder_de_fuego() < other.poder_de_fuego()
 
     def __eq__(self, other):
-        return self.nombre == other.nombre and self.__items == other.__items
+        if isinstance(other, Heroe):
+            return (
+                self.nombre == other.nombre
+                and self._items == other._items
+            )
+        return False
 
 
 # -------------------------
@@ -163,11 +168,3 @@ if __name__ == "__main__":
     # print(h1.nombre, h1.mostrar_items(), h1.poder_de_fuego())
     # print(h2.nombre, h2.mostrar_items(), h2.poder_de_fuego())
     # print(h3.nombre, h3.mostrar_items(), h3.poder_de_fuego())
-
-
-def main():
-    pass
-
-
-if __name__ == "__main__":
-    main()

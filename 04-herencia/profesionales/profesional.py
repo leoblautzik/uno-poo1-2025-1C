@@ -17,7 +17,7 @@ class Profesional(metaclass=ABCMeta):
         self.apellido = apellido
 
     @abstractmethod
-    def calcular_honorario(self):
+    def calcular_honorario(self) -> float:
         pass
 
     # Comparación basada en honorarios
@@ -28,11 +28,15 @@ class Profesional(metaclass=ABCMeta):
         return self.calcular_honorario() == other.calcular_honorario()
 
     def __str__(self):
-        return f"({type(self).__name__}) {self.nombre} {self.apellido} - Honorario: ${self.calcular_honorario():,.2f}"
+        return (
+            f"{type(self).__name__} -> "
+            f"{self.nombre} {self.apellido} -> "
+            f"Honorario: ${self.calcular_honorario():,.2f}"
+        )
 
 
 class Medico(Profesional):
-    def calcular_honorario(self):
+    def calcular_honorario(self) -> float:
         return self.get_honorario_basico()
 
 
@@ -56,6 +60,11 @@ class Endodoncista(Dentista):
         return super().calcular_honorario() * 1.25
 
 
+class Ginecologo(Medico):
+    def calcular_honorario(self):
+        return super().calcular_honorario() * 1.25
+
+
 def main():
     profesionales = [
         Medico("Ana", "Martínez"),
@@ -63,6 +72,7 @@ def main():
         Endodoncista("Manuel", "Molar"),
         Cirujano("Pedro", "Sánchez"),
         CirujanoCardiovascular("Laura", "Pérez"),
+        Ginecologo("Laura", "Martinez"),
     ]
 
     total = 0
