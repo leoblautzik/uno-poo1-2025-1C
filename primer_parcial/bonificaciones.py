@@ -40,16 +40,23 @@ class Desarrollador(Empleado):
 
 class Empresa:
     @classmethod
-    def mostrar_bonificaciones(cls, empleados):
-        for emp in empleados:
-            print(f"{emp} -> Bonificación: ${emp.calcular_bonificacion():.2f}")
+    def mostrar_bonificaciones(cls, empleados: list[Empleado]):
+        for empleado in empleados:
+            print(
+                f"{empleado} -> Bonificación: ${empleado.calcular_bonificacion():.2f}"
+            )
 
     @classmethod
-    def imprimir_salarios(cls, empleados):
+    def imprimir_salarios(cls, empleados: list[Empleado]):
         resultados = []
-        for e in empleados:
+        for empleado in empleados:
             resultados.append(
-                ("Nombre:", e.get_nombre(), "Salario", e.calcular_salario())
+                (
+                    "Nombre:",
+                    empleado.get_nombre(),
+                    "Salario",
+                    empleado.calcular_salario(),
+                )
             )
         return resultados
 

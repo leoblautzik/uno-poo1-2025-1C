@@ -44,17 +44,22 @@ class Banco:
                     print(c)
 
 
-bco = Banco()
-cc1 = bco.abrir_cuenta_corriente(12345678, 10000)
-ca1 = bco.abrir_caja_ahorro(23456789)
-bco.agregar_cuenta(cc1)
-bco.agregar_cuenta(ca1)
-bco.listar_cuentas()
-cc1.depositar((50000))
-ca1.depositar(20000)
-ca1.reservar(5000)
-print("Listado de cuentas: ")
-bco.listar_cuentas()
-cc1.extraer(55000)
-print("Listado de cuentas en descubierto: ")
-bco.listar_cuentas_en_descubierto()
+def main():
+    bco = Banco()
+    cc1 = bco.abrir_cuenta_corriente(12345678, 10000)
+    ca1 = bco.abrir_caja_ahorro(23456789)
+    bco.agregar_cuenta(cc1)
+    bco.agregar_cuenta(ca1)
+    bco.listar_cuentas()
+    cc1.depositar((50000))
+    ca1.depositar(20000)
+    ca1.reservar(5000)
+    print("Listado de cuentas: ")
+    bco.listar_cuentas()
+    cc1.extraer(55000)
+    print("Listado de cuentas en descubierto: ")
+    bco.listar_cuentas_en_descubierto()
+
+
+if __name__ == "__main__":
+    main()

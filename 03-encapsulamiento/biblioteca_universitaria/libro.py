@@ -22,10 +22,8 @@ class Libro:
         return self.__ejemplares_prestados < self.__ejemplares_disponibles
 
     def __str__(self):
-        return (
-            f"{self.__titulo}, {self.__autor}, "
-            f"ejemp_disp:{self.__ejemplares_disponibles - self.__ejemplares_prestados}"
-        )
+        quedan = self.__ejemplares_disponibles - self.__ejemplares_prestados
+        return f"{self.__titulo}, {self.__autor}, ejemp_disp:{quedan}"
 
     def get_isbn(self) -> str:
         return self.__isbn

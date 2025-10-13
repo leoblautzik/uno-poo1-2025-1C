@@ -69,12 +69,11 @@ class Cuenta(ABC):
 
     @abstractmethod
     def extraer(self, monto) -> float:
+        pass
         #     """de todas las cuentas se debe poder extraer dinero,
         #     si hay dinero suficiente. No tiene el mismo comportamiento
         #     para cuentas de ahorro que para cuentas corrientes"""
         #     self.__saldo -= monto
-
-        return 0
 
     def depositar(self, monto):
         """Incrementa el saldo en el monto que se pasa por parametro"""

@@ -43,7 +43,7 @@ class TestUnidades(unittest.TestCase):
         # Simular 3 ataques → caballo rebelde
         for _ in range(3):
             self.caballero.atacar(self.soldado)
-        self.assertTrue(self.caballero.caballo_rebelde)
+        self.assertTrue(self.caballero.caballo.esta_rebelde())
         self.assertFalse(self.caballero.puede_atacar(self.soldado))
         # Luego recibe agua → vuelve a poder atacar
         self.caballero.recibir_agua()
@@ -63,7 +63,7 @@ class TestUnidadesReduccionSalud(unittest.TestCase):
         self.caballero = Caballero(posicion=2)
 
     def test_soldado_puede_atacar_cercano(self):
-        self.assertTrue(self.soldado.puede_atacar(self.lancero))
+        self.assertFalse(self.soldado.puede_atacar(self.lancero))
         self.lancero.posicion = 3  # distancia 3 → inválido
         self.assertFalse(self.soldado.puede_atacar(self.lancero))
 
@@ -88,7 +88,7 @@ class TestUnidadesReduccionSalud(unittest.TestCase):
         # Simular 3 ataques
         for _ in range(3):
             self.caballero.atacar(self.soldado)
-        self.assertTrue(self.caballero.caballo_rebelde)
+        self.assertTrue(self.caballero.caballo.esta_rebelde())
         self.assertFalse(self.caballero.puede_atacar(self.soldado))
         # Recibir agua
         self.caballero.recibir_agua()
@@ -102,7 +102,8 @@ class TestUnidadesReduccionSalud(unittest.TestCase):
     def test_reduccion_salud_en_ataque(self):
         # Soldado ataca a Lancero
         salud_inicial = self.lancero.salud
-        self.lancero.posicion = 1
+        self.lancero.posicion = 0
+        self.assertTrue(self.soldado.puede_atacar(self.lancero))
         if self.soldado.puede_atacar(self.lancero):
             self.soldado.atacar(self.lancero)
         self.assertLess(self.lancero.salud, salud_inicial)

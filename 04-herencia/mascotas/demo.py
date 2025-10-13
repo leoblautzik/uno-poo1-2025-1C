@@ -17,6 +17,7 @@ def main():
     mascotas.append(boby)
     mascotas.append(michi)
     mascotas.append(rabito)
+    mascotas.append(Perro("Lucas", 4, "caniche"))
     vacunar(boby)
     vacunar(rabito)
 

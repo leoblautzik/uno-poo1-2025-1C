@@ -39,8 +39,6 @@ class CajaDeAhorro(Cuenta):
 
     def extraer(self, monto) -> float:
         if self.hay_dinero_suficiente(monto):
-            if not self.consultar_saldo() >= monto:
-                self.recuperar(monto - self.consultar_saldo())
             self._saldo -= monto
 
         return monto

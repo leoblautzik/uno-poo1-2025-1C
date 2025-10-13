@@ -1,6 +1,12 @@
 from __future__ import annotations
-from abc import ABC, abstractmethod
+from abc import ABC, ABCMeta, abstractmethod
 import math
+
+
+class Aguatero(metaclass=ABCMeta):
+    @abstractmethod
+    def recibir_agua(self):
+        pass
 
 
 class Unidad(ABC):
@@ -24,7 +30,7 @@ class Unidad(ABC):
         return self.salud > 0
 
 
-class Soldado(Unidad):
+class Soldado(Unidad, Aguatero):
     def __init__(self, posicion):
         super().__init__(salud=200, danio=10, posicion=posicion)
         self.energia = 100
@@ -63,10 +69,10 @@ class Arquero(Unidad):
             and objetivo.esta_viva()
         )
 
-    def atacar(self, objetivo):
+    def atacar(self, objetivo: Unidad):
         if self.puede_atacar(objetivo):
             self.flechas -= 1
-            objetivo.recibir_danio(self)
+            objetivo.recibir_ataque(self)
 
     def recibir_flechas(self, cantidad=6):
         self.flechas += cantidad
@@ -92,27 +98,29 @@ class Lancero(Unidad):
 
 
 class Caballero(Unidad):
-    def __init__(self, posicion, caballo):
+    def __init__(self, posicion):
         super().__init__(salud=200, danio=50, posicion=posicion)
-        self.caballo = caballo
+        self.caballo = Caballo()
 
     def puede_atacar(self, objetivo: Unidad) -> bool:
-        distancia = self.posicion - objetivo.posicion
+        distancia = abs(self.posicion - objetivo.posicion)
         return 1 <= distancia <= 2 and not self.caballo.esta_rebelde()
 
-    def atacar(self, objetivo):
-        self.caballo.contar_ataques()
+    def atacar(self, objetivo: Unidad):
+        if self.puede_atacar(objetivo):
+            self.caballo.contar_ataques()
+            objetivo.recibir_ataque(self)
 
     def recibir_agua(self):
-        self.caballo.recibir_racion_agua()
+        self.caballo.recibir_agua()
 
 
-class Caballo:
+class Caballo(Aguatero):
     def __init__(self):
         self.__ataques_realizados = 0
         # self.__rebelde = False
 
-    def recibir_racion_agua(self):
+    def recibir_agua(self):
         self.__ataques_realizados = 0
 
     def contar_ataques(self):
@@ -120,7 +128,7 @@ class Caballo:
             self.__ataques_realizados += 1
 
     def esta_rebelde(self):
-        return self.__ataques_realizados < 3
+        return self.__ataques_realizados >= 3
 
 
 class Escudo(Unidad):
@@ -132,7 +140,7 @@ class Escudo(Unidad):
         self.unidad.atacar(objetivo)
 
     def puede_atacar(self, objetivo: Unidad) -> bool:
-        self.unidad.puede_atacar(objetivo)
+        return self.unidad.puede_atacar(objetivo)
 
     def recibir_ataque(self, atacante):
         danio_reducido = atacante.danio * 0.4

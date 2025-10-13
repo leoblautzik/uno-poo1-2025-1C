@@ -1,0 +1,32 @@
+A1023,Mouse Logitech M90,Periféricos,5200.50,3,Camila
+A1023,Mouse Logitech M90,Periféricos,5200.50,2,Lautaro
+A1001,Teclado Redragon Kumara,Periféricos,14500.00,1,Camila
+A1050,Monitor Samsung 24,Monitores,112000.00,2,Lucas
+A1080,Notebook Lenovo IdeaPad,Computadoras,690000.00,1,Valentina
+A1080,Notebook Lenovo IdeaPad,Computadoras,690000.00,1,Camila
+A1095,Webcam Genius FaceCam,Periféricos,7800.00,4,Lautaro
+A1077,Disco SSD Kingston 480GB,Almacenamiento,31000.00,1,Lucas
+A1060,Memoria RAM 16GB DDR4,Componentes,42000.00,2,Camila
+A1011,Mousepad HyperX Fury,Periféricos,3900.00,5,Lautaro
+A1102,Impresora HP Ink Tank,Periféricos,128000.00,1,Valentina
+A1028,Placa de video RTX 4060,Componentes,540000.00,1,Lautaro
+A1058,Fuente CoolerMaster 650W,Componentes,52000.00,1,Lucas
+A1110,Tablet Samsung A8,Dispositivos,185000.00,2,Camila
+A1033,Cable HDMI 2m,Accesorios,2500.00,3,Lucas
+A1072,Notebook HP Pavilion,Computadoras,810000.00,1,Valentina
+A1005,Mouse Logitech G203,Periféricos,9500.00,2,Lautaro
+A1092,Router TP-Link Archer,Redes,23000.00,1,Camila
+A1120,Monitor LG 27,Monitores,158000.00,1,Lucas
+A1135,Notebook Dell Inspiron,Computadoras,745000.00,1,Valentina
+A1140,Teclado Logitech K120,Periféricos,6200.00,2,Camila
+A1150,Memoria RAM 8GB DDR4,Componentes,26000.00,1,Lucas
+A1160,SSD M.2 NVMe 1TB,Almacenamiento,54000.00,2,Lautaro
+A1170,Mouse Razer DeathAdder,Periféricos,18500.00,9,Lucas
+A1180,Hub USB 4 Puertos,Accesorios,4200.00,3,Camila
+A1190,Notebook Asus VivoBook,Computadoras,685000.00,1,Valentina
+A1200,Monitor AOC 22,Monitores,98000.00,1,Lucas
+A1210,Placa madre ASUS Prime,Componentes,89000.00,1,Lautaro
+A1220,Disco externo Seagate 2TB,Almacenamiento,67000.00,2,Lucas
+A1230,Mouse inalámbrico Genius,Periféricos,5500.00,3,Camila
+A1240,Notebook Lenovo ThinkPad,Computadoras,910000.00,1,Valentina
+A1250,Teclado Mecánico HyperX,Periféricos,22800.00,2,Lucas

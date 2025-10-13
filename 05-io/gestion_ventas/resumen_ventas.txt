@@ -1,0 +1,8 @@
+Total de ventas: $6966302.50 
+Producto más vendido:  -> cantidad: 9 
+Vendedor del día: ('Valentina', 3968000.0) -> importe: $3968000.00 
+Totales por vendedor: 
+	- Camila:         $1238601.50 
+	- Lautaro:        $817101.00 
+	- Lucas:          $942600.00 
+	- Valentina:      $3968000.00 

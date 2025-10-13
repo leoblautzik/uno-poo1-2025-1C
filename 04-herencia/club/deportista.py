@@ -17,7 +17,7 @@ class Deportista(metaclass=ABCMeta):
 
     @property
     def dias(self):
-    return self.__dias
+        return self.__dias
 
     @classmethod
     def set_cuota_base(cls, cb):

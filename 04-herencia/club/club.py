@@ -5,7 +5,7 @@ from deportista import Deportista, Futbolista, Tenista
 
 class Club:
     def __init__(self):
-        self.__socios = []
+        self.__socios: list[Deportista] = []
         self.__prox_num_socio = 0
 
     def get_prox_num_socio(self) -> int:
@@ -13,10 +13,10 @@ class Club:
         return self.__prox_num_socio
 
     @classmethod
-    def set_cuota_base(cls, nuevo_valor):
+    def set_cuota_base(cls, nuevo_valor: float):
         Deportista.set_cuota_base(nuevo_valor)
 
-    def agregar_socio(self, nuevo_socio):
+    def agregar_socio(self, nuevo_socio: Deportista):
         nuevo_socio.set_numero_socio(self.get_prox_num_socio())
         self.__socios.append(nuevo_socio)
 
@@ -36,12 +36,20 @@ def main():
     club = Club()
     vilas = Tenista(4)
     messi = Futbolista(7)
+    nadal = Tenista(3)
     club.agregar_socio(vilas)
     club.agregar_socio(messi)
+    club.agregar_socio(nadal)
+    club.agregar_socio(Futbolista(6))
     club.listar_planilla_socios()
 
     print(club.get_total_mensual_de_cuotas())
     club.set_cuota_base(500)
+
+    club.listar_planilla_socios()
+    print(club.get_total_mensual_de_cuotas())
+
+    club.set_cuota_base(1000)
 
     club.listar_planilla_socios()
     print(club.get_total_mensual_de_cuotas())
