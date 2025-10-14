@@ -4,9 +4,6 @@ from terminal_de_teletipo import TerminalDeTeletipo
 
 
 class TestColeccionesTerminalDeTeletipo(unittest.TestCase):
-    def test_example(self):
-        self.assertEqual(1 + 1, 2)
-
     def test_01(self):
         """& al final, debe devolver cadena vacia"""
         self.assertEqual("", TerminalDeTeletipo.procesar("abc&"))
