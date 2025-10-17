@@ -1,5 +1,5 @@
 import unittest
-from listas import eliminar_duplicados  # asumiendo que la función está en main.py
+from listas import eliminar_duplicados
 
 
 class TestEliminarDuplicados(unittest.TestCase):

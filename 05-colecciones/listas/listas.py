@@ -5,13 +5,20 @@ def eliminar_duplicados(enteros: list[int]) -> list[int]:
     """Devuelve una nueva lista con los mismos elementos pero sin repetir,
     manteniendo el orden de aparición original."""
     # TODO
-    return []
+    aux: list[int] = []
+    for e in enteros:
+        if e not in aux:
+            aux.append(e)
+    return aux
 
 
 def invertir_lista(enteros: list[int]) -> list[int]:
     """Recibe una lista de enteros y la devuelva invertida"""
     # TODO
-    return []
+    aux: list[int] = []
+    for e in enteros.__reversed__():
+        aux.append(e)
+    return aux
 
 
 def contiene_suma_dos(enteros: list[int]) -> bool:
