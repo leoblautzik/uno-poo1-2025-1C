@@ -15,6 +15,32 @@ class TestDicts(unittest.TestCase):
         )
         self.assertEqual(contar_frecuencias([]), {})
         self.assertEqual(contar_frecuencias(["x"]), {"x": 1})
+        # Caso con todas palabras diferentes
+        self.assertEqual(contar_frecuencias(["a", "b", "c"]), {"a": 1, "b": 1, "c": 1})
+        # Caso con repeticiones múltiples
+        self.assertEqual(
+            contar_frecuencias(["rojo", "rojo", "azul", "rojo", "azul"]),
+            {"rojo": 3, "azul": 2},
+        )
+        # Caso sensible a mayúsculas (si la función no normaliza)
+        self.assertEqual(
+            contar_frecuencias(["Hola", "hola", "HOLA"]),
+            {"Hola": 1, "hola": 1, "HOLA": 1},
+        )
+        # Caso con palabras con espacios extra
+        # (si la función no limpia strings)
+        self.assertEqual(
+            contar_frecuencias(["  uno", "uno", "uno  "]),
+            {"  uno": 1, "uno": 1, "uno  ": 1},
+        )
+        # Caso con números o símbolos (para ver si la función maneja tokens mixtos)
+        self.assertEqual(
+            contar_frecuencias(["1", "2", "1", "!", "!"]), {"1": 2, "2": 1, "!": 2}
+        )
+        # Caso con palabra repetida no contigua (para confirmar acumulación correcta)
+        self.assertEqual(
+            contar_frecuencias(["x", "y", "x", "z", "y", "x"]), {"x": 3, "y": 2, "z": 1}
+        )
 
     def test_invertir_diccionario(self):
         entrada = {"hola": 2, "chau": 3, "si": 2}

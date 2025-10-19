@@ -59,7 +59,7 @@ class TestEsSublista(unittest.TestCase):
     def test_sublista_parcial_con_repetidos(self):
         """Evita falsos positivos por repeticiones."""
         # [2, 3, 2] no está en [2, 2, 3, 2]
-        self.assertFalse(es_sublista([2, 3, 2], [2, 2, 3, 2]))
+        self.assertTrue(es_sublista([2, 3, 2], [2, 2, 3, 2]))
 
     def test_sublista_mas_larga_que_lista(self):
         """Una sublista más larga que la lista principal no puede estar incluida."""
