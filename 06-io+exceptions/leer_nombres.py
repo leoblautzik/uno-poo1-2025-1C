@@ -6,9 +6,10 @@ class LeerNombres:
         self.nombres = []
 
     def leer_nombres(self, mi_archivo: str):
-        with open(mi_archivo, "r", encoding="UTF-8") as archinom:
+        with open(mi_archivo, "r") as archinom:
             for nombre in archinom:
                 self.nombres.append(nombre.strip())
+        archinom.close()
 
     def contar_nombres(self):
         return len(self.nombres)

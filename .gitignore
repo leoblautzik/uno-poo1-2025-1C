@@ -12,6 +12,7 @@
 !**/*.csv
 !**/*.txt
 !**/*.in
+!**/*.pdf
 
 # También permitir el archivo .gitignore
 !.gitignore

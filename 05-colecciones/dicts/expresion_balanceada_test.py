@@ -3,10 +3,7 @@ import unittest
 from expresion_balanceada import ExpresionBalanceada
 
 
-class TestColeccionesExpresionBalanceada(unittest.TestCase):
-    def test_example(self):
-        self.assertEqual(1 + 1, 2)
-
+class TestExpresionBalanceada(unittest.TestCase):
     def test_balanceada_enunciado(self):
         eb = ExpresionBalanceada()
         self.assertTrue(eb.esta_balanceada("[()]{}{[()()]()}"))
@@ -25,7 +22,7 @@ class TestColeccionesExpresionBalanceada(unittest.TestCase):
 
     def test_de_cerrar_de_abrir(self):
         eb = ExpresionBalanceada()
-        self.assertFalse(eb.esta_balanceada(")("))
+        self.assertFalse(eb.esta_balanceada("())("))
 
     def test_cualquier_cadena(self):
         eb = ExpresionBalanceada()

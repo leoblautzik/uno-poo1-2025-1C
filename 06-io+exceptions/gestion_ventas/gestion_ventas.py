@@ -98,10 +98,13 @@ class GestionVentas:
     def ventas_vendedor(self) -> dict[str, float]:
         vv: dict[str, float] = {}
         for venta in self.__ventas:
-            if venta.vendedor not in vv.keys():
-                monto_actualizado = venta.monto_total()
-            else:
-                monto_actualizado = vv[venta.vendedor] + venta.monto_total()
+            # if venta.vendedor not in vv.keys():
+            #     monto_actualizado = venta.monto_total()
+            # else:
+            #     monto_actualizado = vv[venta.vendedor] + venta.monto_total()
+            # vv[venta.vendedor] = monto_actualizado
+
+            monto_actualizado = vv.setdefault(venta.vendedor, 0) + venta.monto_total()
             vv[venta.vendedor] = monto_actualizado
 
         return vv
@@ -114,6 +117,7 @@ class GestionVentas:
             else:
                 cantidad_vendida = pc[venta.codigo] + venta.cantidad
             pc[venta.codigo] = cantidad_vendida
+
         produ_max, cant_max = max(pc.items(), key=lambda item: item[1])
 
         return self.obtener_descripcion(produ_max), cant_max

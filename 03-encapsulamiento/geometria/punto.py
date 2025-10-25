@@ -3,6 +3,7 @@ que representarán las coordenadas del punto dentro del plano."""
 
 from __future__ import annotations
 from math import hypot, sqrt
+from warnings import warn
 
 
 class Punto:
@@ -45,7 +46,7 @@ class Punto:
 
     @staticmethod
     def distancia_entre_puntos(a: Punto, b: Punto) -> float:
-        """Calcula la distancia desde el punto a hasta el punto b."""
+        """Calcula la distancia desde el punto a hasta el punto b"""
         return hypot(a.x - b.x, a.y - b.y)
 
     def desplazar(self, en_x, en_y):
@@ -55,20 +56,22 @@ class Punto:
     def __repr__(self):
         return f"Punto({self.x},{self.y})"
 
+    def __eq__(self, otro):
+        return self.x == otro.x and self.y == otro.y
+
+    def __hash__(self):
+        return hash(sqrt(self.x + self.y))
+
 
 def main():
     """main"""
     p1 = Punto(1, 1)
-    p2 = Punto(4, 5)
-    print(p1.distancia_al_origen())
-    print(p1.distancia(p2))
-    print(p2.distancia(p1))
-    print(Punto.distancia_entre_puntos(p1, p2))
-    print(Punto.distancia_entre_puntos(p2, p1))
+    p2 = Punto(1, 1)
+    conjupuntos = set()
+    conjupuntos.add(p1)
+    conjupuntos.add(p2)
 
-    print(p1)
-
-    print(sqrt(4))
+    print(conjupuntos)
 
 
 if __name__ == "__main__":

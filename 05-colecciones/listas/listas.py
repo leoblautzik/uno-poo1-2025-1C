@@ -4,14 +4,19 @@
 def eliminar_duplicados(enteros: list[int]) -> list[int]:
     """Devuelve una nueva lista con los mismos elementos pero sin repetir,
     manteniendo el orden de aparición original."""
-    # TODO
-    return []
+    sd: list[int] = []
+    for e in enteros:
+        if e not in sd:
+            sd.append(e)
+
+    return sd
 
 
 def invertir_lista(enteros: list[int]) -> list[int]:
-    """Recibe una lista de enteros y la devuelva invertida"""
+    """Recibe una lista de enteros y devuelve otra pero invertida"""
     # TODO
-    return []
+    li: list[int] = enteros[::-1]
+    return li
 
 
 def contiene_suma_dos(enteros: list[int]) -> bool:
@@ -34,4 +39,8 @@ def es_sublista(l1: list[int], l2: list[int]) -> bool:
     vemos que L1 no es sublista de L3 por lo que el método
     llamado con L1 y L3 debe devolver false."""
     # TODO
+    for i in range(len(l2) - len(l1) + 1):
+        if l1 == l2[i : i + len(l1)]:
+            return True
+
     return False

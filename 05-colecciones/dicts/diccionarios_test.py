@@ -73,6 +73,12 @@ class TestDicts(unittest.TestCase):
         )
         self.assertEqual(clave_mas_larga({}), "")
         self.assertEqual(clave_mas_larga({"a": "b"}), "a")
+        self.assertEqual(
+            clave_mas_larga(
+                {"uno": "1", "tres": "3", "1111111111": "22", "2222222222": "todos"}
+            ),
+            "1111111111",
+        )
 
 
 if __name__ == "__main__":
