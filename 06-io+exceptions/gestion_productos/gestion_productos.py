@@ -1,22 +1,24 @@
 """
-Archivo de entrada: productos.csv con descripcion, categoria, precio, stock para cada producto
+Archivo de entrada: productos.csv con descripcion, categoria, precio,
+stock para cada producto
 Laptop, Electrónica 1000, 5
 Smartphone, Electrónica, 700, 10
 Mesa, Muebles, 150, 15
 Silla, Muebles, 80, 30
-Implementar la class GestionProductos que guarde en una lista todos los productos leídos del archivo.
-Debe proveer un metodo que devuelve un diccionario donde la key sea la categoría, y el value asociado,
-una lista con los productos de esa categoría.
-Debe proveer un metodo que devuelva la categoríá más valiosa, o sea que la cantidad de
-productos en stock multiplicado por su precio, sea la mayor.
+Implementar la class GestionProductos que guarde en una lista todos
+los productos leídos del archivo.
+Debe proveer un metodo que devuelve un diccionario donde la key
+sea la categoría, y el value asociado, una lista con los productos
+de esa categoría.
+Debe proveer un metodo que devuelva la categoríá más valiosa,
+o sea que la cantidad de productos en stock multiplicado por su precio,
+sea la mayor.
 En el caso del ejemplo:
 Electrónica vale 1000 * 5 + 700 * 10 = 12000
 Muebles vale 150 * 15 + 80 * 30 = 4650
 Deberá devolver Electrónica
 Nota: Se debe implementar la class Producto
 """
-
-import re
 
 
 class Producto:
@@ -27,7 +29,7 @@ class Producto:
         self.stock = stock
 
     def __repr__(self) -> str:
-        return f"{self.descripcion}, {self.categoria}, {self.precio}, {self.stock}"
+        return f"{self.descripcion}, {self.categoria},{self.precio}, {self.stock}"
 
 
 class GestionProducto:
@@ -56,12 +58,24 @@ class GestionProducto:
 
         return ppc
 
+    def categoria_mas_valiosa(self) -> tuple[str, float]:
+        ppc = self.productos_por_categoria()
+        dic_cat_valor: dict[str, float] = {}
+        for cate, lista_prod in ppc.items():
+            valor = 0
+            for prod in lista_prod:
+                valor += prod.precio * prod.stock
+            dic_cat_valor[cate] = valor
+
+        return max(dic_cat_valor.items(), key=lambda item: item[1])
+
 
 def main():
     gp = GestionProducto()
     gp.leer_productos("productos.csv")
     print(gp.productos)
     print(gp.productos_por_categoria())
+    print(gp.categoria_mas_valiosa())
 
 
 if __name__ == "__main__":
