@@ -1,0 +1,10 @@
+Producto: Café en grano 1kg    | Vendidos:    12 | Stock: 3 
+Producto: Yerba orgánica 500g  | Vendidos:    14 | Stock: 11 
+Producto: Té verde 250g        | Vendidos:     5 | Stock: 15 
+Producto: Azúcar mascabo 1kg   | Vendidos:     5 | Stock: 13 
+Producto: Miel pura 500g       | Vendidos:     1 | Stock: 11 
+Producto: Harina integral 1kg  | Vendidos:     7 | Stock: 23 
+Producto: Avena instantánea 1k | Vendidos:     6 | Stock: 16 
+Producto: Granola natural 500g | Vendidos:     7 | Stock: 9 
+Producto: Cacao amargo 250g    | Vendidos:     3 | Stock: 11 
+Producto: Sal marina 1kg       | Vendidos:    14 | Stock: 14 

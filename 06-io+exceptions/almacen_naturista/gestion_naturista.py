@@ -76,16 +76,17 @@ class GestorProductos:
                 except StockInsuficienteException:
                     pass
 
+    def reporte_stock(self):
+        with open("reporte_stock.txt", "w") as reporte:
+            for prod, st in self.stock.items():
+                reporte.write(
+                    f"Producto: {prod.descripcion:20.20} | Vendidos: {self.ventas[prod]:5} | Stock: {st} \n"
+                )
+
 
 def main():
     gp = GestorProductos("productos.csv", "ventas.csv")
-    print("Stock")
-    print(gp.stock)
-    print("Ventas")
-    print(gp.ventas)
-
-    print("Stock")
-    print(gp.stock)
+    gp.reporte_stock()
 
 
 if __name__ == "__main__":
