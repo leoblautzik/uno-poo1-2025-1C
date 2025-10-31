@@ -1,5 +1,12 @@
 """
-Torneo de arquería
+Implementar la class Torneo que tiene como atributo un diccionario [int, int] participantes,
+donde la clave es el numero de participante y el value, la sumatoria de los
+puntos obtenidos en los 5 tiros.
+El constructor de Torneo llama a una funcion privada que lee los datos del
+archivo (que se pasa por parámetro) y guarda los datos validos,
+ya procesados en el diccionario participantes.
+Los datos del torneo se guardaron en el archivo tiros.csv,
+determine la clasificación y genere el archivo podio.out con el siguiente formato:
 """
 
 
@@ -16,12 +23,13 @@ class ParticipanteDuplicadoException(Exception):
 
 
 class Torneo:
-    def __init__(self) -> None:
+    def __init__(self, archivo) -> None:
         self.participantes: dict[int, int] = {}
+        self.__leer_puntajes(archivo)
 
-    def leer_puntajes(self, tiros) -> None:
+    def __leer_puntajes(self, archivo) -> None:
         puntos_validos = (1000, 500, 200, 100, 50)
-        with open(tiros, "r") as tiros:
+        with open(archivo, "r") as tiros:
             for linea in tiros:
                 datos = linea.strip().split(",")
                 try:
@@ -86,9 +94,8 @@ class Torneo:
 
 
 def main():
-    torneo = Torneo()
-    torneo.leer_puntajes("tiros.csv")
-    print("\nPodio: \n")
+    torneo = Torneo("tiros.csv")
+    print("\nPodio: ")
     print(torneo.podio())
 
 
