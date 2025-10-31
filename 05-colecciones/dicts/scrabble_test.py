@@ -1,5 +1,5 @@
 import unittest
-from scrabble import Scrabble  # asumimos que tu clase está en scrabble.py
+from scrabble import Scrabble
 
 
 class TestScrabble(unittest.TestCase):

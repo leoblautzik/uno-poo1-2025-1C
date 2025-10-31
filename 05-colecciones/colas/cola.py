@@ -1,5 +1,9 @@
 from collections import deque
 
+"""
+Cola
+"""
+
 
 def main():
     cola = deque()

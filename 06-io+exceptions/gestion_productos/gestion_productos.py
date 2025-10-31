@@ -29,7 +29,24 @@ class Producto:
         self.stock = stock
 
     def __repr__(self) -> str:
-        return f"{self.descripcion}, {self.categoria},{self.precio}, {self.stock}"
+        return (
+            f"Descripción: {self.descripcion}, Categoria: {self.categoria}"
+            f", Precio: ${self.precio}, Stock: {self.stock}"
+        )
+
+    def __str__(self) -> str:
+        return f"{self.descripcion}, {self.categoria}"
+
+    def __eq__(self, other: object, /) -> bool:
+        if isinstance(other, Producto):
+            return (
+                self.categoria == other.categoria
+                and self.descripcion == other.descripcion
+            )
+        return False
+
+    def __hash__(self):
+        return hash(self.categoria + self.descripcion)
 
 
 class GestionProducto:

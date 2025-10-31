@@ -15,6 +15,8 @@ Debe proveer un metodo que devuelva el sector que pague mayores sueldos en total
 Nota: Se debe implementar la class Empleado
 """
 
+import csv
+
 
 class Empleado:
     def __init__(self, nombre, sector, salario):
@@ -22,17 +24,33 @@ class Empleado:
         self.sector = sector
         self.salario = salario
 
+    def __repr__(self) -> str:
+        return (
+            f"Empleado: {self.nombre}, Sector: {self.sector}, Salario: ${self.salario}"
+        )
+
+    def __eq__(self, value: object, /) -> bool:
+        if not isinstance(value, Empleado):
+            return NotImplemented
+        return self.nombre == value.nombre and self.sector == value.sector
+
 
 class GestionEmpleados:
     def __init__(self):
         self.empleados: list[Empleado] = []
 
-    def leer_empleados(self, archivo_e):
-        with open(archivo_e, "r") as emp:
-            for cada_empleado in emp:
-                datos = cada_empleado.strip().split(",")
-                self.empleados.append(Empleado(datos[0], datos[1], float(datos[2])))
-        emp.close()
+    # def leer_empleados(self, archivo_e):
+    #     with open(archivo_e, "r") as emp:
+    #         for cada_empleado in emp:
+    #             datos = cada_empleado.strip().split(",")
+    #             self.empleados.append(Empleado(datos[0], datos[1], float(datos[2])))
+    #     emp.close()
+    def leer_empleados(self, archivo_csv) -> None:
+        with open(archivo_csv, newline="", encoding="UTF-8") as ae:
+            lector = csv.reader(ae)
+            for nombre, sector, salario in lector:
+                self.empleados.append(Empleado(nombre, sector, float(salario)))
+        ae.close()
 
     def emp_del_sector(self) -> dict[str, list[Empleado]]:
         sp: dict[str, list[Empleado]] = {}
