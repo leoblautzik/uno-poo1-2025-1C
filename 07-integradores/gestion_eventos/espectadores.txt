@@ -1,170 +1,51 @@
-EVT004
-CTE:3884
-Puerta 1: 0
-Puerta 2: 105
-Puerta 3: 435
-Puerta 4: 155
-Puerta 5: 243
-Puerta 6: 228
-Puerta 7: 133
-Puerta 8: 298
-Puerta 9: 481
-Puerta 10: 144
-Puerta 11: 440
-Puerta 12: 151
-Puerta 13: 357
-Puerta 14: 368
-Puerta 15: 346
-EVT005
-CTE:4770
-Puerta 1: 325
-Puerta 2: 294
-Puerta 3: 0
-Puerta 4: 366
-Puerta 5: 128
-Puerta 6: 462
-Puerta 7: 679
-Puerta 8: 279
-Puerta 9: 768
-Puerta 10: 38
-Puerta 11: 192
-Puerta 12: 743
-Puerta 13: 221
-Puerta 14: 18
-Puerta 15: 257
-EVT008
-CTE:4432
-Puerta 1: 641
-Puerta 2: 500
-Puerta 3: 320
-Puerta 4: 150
-Puerta 5: 181
-Puerta 6: 376
-Puerta 7: 299
-Puerta 8: 23
-Puerta 9: 200
-Puerta 10: 208
-Puerta 11: 159
-Puerta 12: 267
-Puerta 13: 375
-Puerta 14: 389
-Puerta 15: 344
-EVT002
-CTE:5724
-Puerta 1: 710
-Puerta 2: 212
-Puerta 3: 344
-Puerta 4: 195
-Puerta 5: 155
-Puerta 6: 621
-Puerta 7: 365
-Puerta 8: 275
-Puerta 9: 377
-Puerta 10: 649
-Puerta 11: 145
-Puerta 12: 685
-Puerta 13: 442
-Puerta 14: 168
-Puerta 15: 381
-EVT009
-CTE:5187
-Puerta 1: 220
-Puerta 2: 250
-Puerta 3: 312
-Puerta 4: 176
-Puerta 5: 135
-Puerta 6: 241
-Puerta 7: 764
-Puerta 8: 301
-Puerta 9: 242
-Puerta 10: 306
-Puerta 11: 542
-Puerta 12: 302
-Puerta 13: 534
-Puerta 14: 465
-Puerta 15: 397
-EVT003
-CTE:4927
-Puerta 1: 210
-Puerta 2: 766
-Puerta 3: 366
-Puerta 4: 396
-Puerta 5: 442
-Puerta 6: 509
-Puerta 7: 21
-Puerta 8: 491
-Puerta 9: 416
-Puerta 10: 41
-Puerta 11: 142
-Puerta 12: 405
-Puerta 13: 273
-Puerta 14: 206
-Puerta 15: 243
-EVT007
-CTE:6270
-Puerta 1: 119
-Puerta 2: 251
-Puerta 3: 378
-Puerta 4: 352
-Puerta 5: 446
-Puerta 6: 484
-Puerta 7: 738
-Puerta 8: 428
-Puerta 9: 230
-Puerta 10: 314
-Puerta 11: 701
-Puerta 12: 366
-Puerta 13: 361
-Puerta 14: 754
-Puerta 15: 348
-EVT010
-CTE:5671
-Puerta 1: 306
-Puerta 2: 928
-Puerta 3: 0
+Potrerito vs. Jubilados
+CTE:3064
+Puerta 1: 107
+Puerta 2: 451
+Puerta 3: 486
 Puerta 4: 0
-Puerta 5: 173
-Puerta 6: 334
-Puerta 7: 393
-Puerta 8: 533
-Puerta 9: 404
-Puerta 10: 292
-Puerta 11: 735
-Puerta 12: 239
-Puerta 13: 110
-Puerta 14: 346
-Puerta 15: 878
-EVT006
-CTE:5336
-Puerta 1: 11
-Puerta 2: 424
-Puerta 3: 108
-Puerta 4: 510
-Puerta 5: 110
-Puerta 6: 127
-Puerta 7: 192
-Puerta 8: 648
-Puerta 9: 881
-Puerta 10: 97
-Puerta 11: 478
-Puerta 12: 876
-Puerta 13: 327
-Puerta 14: 341
-Puerta 15: 206
-EVT001
-CTE:4358
-Puerta 1: 251
-Puerta 2: 319
-Puerta 3: 456
-Puerta 4: 225
-Puerta 5: 266
-Puerta 6: 436
-Puerta 7: 354
-Puerta 8: 551
-Puerta 9: 277
-Puerta 10: 283
-Puerta 11: 21
-Puerta 12: 34
-Puerta 13: 175
-Puerta 14: 225
-Puerta 15: 485
+Puerta 5: 24
+Puerta 6: 53
+Puerta 7: 3
+Puerta 8: 423
+Puerta 9: 346
+Puerta 10: 165
+Puerta 11: 135
+Puerta 12: 487
+Puerta 13: 146
+Puerta 14: 238
+Puerta 15: 0
+Barracas vs. Sacachispas
+CTE:3334
+Puerta 1: 407
+Puerta 2: 0
+Puerta 3: 399
+Puerta 4: 463
+Puerta 5: 201
+Puerta 6: 107
+Puerta 7: 275
+Puerta 8: 400
+Puerta 9: 112
+Puerta 10: 157
+Puerta 11: 307
+Puerta 12: 181
+Puerta 13: 282
+Puerta 14: 43
+Puerta 15: 0
+Desamparados vs. Dalmine
+CTE:2646
+Puerta 1: 45
+Puerta 2: 37
+Puerta 3: 115
+Puerta 4: 196
+Puerta 5: 80
+Puerta 6: 130
+Puerta 7: 68
+Puerta 8: 198
+Puerta 9: 0
+Puerta 10: 0
+Puerta 11: 395
+Puerta 12: 241
+Puerta 13: 187
+Puerta 14: 472
+Puerta 15: 482

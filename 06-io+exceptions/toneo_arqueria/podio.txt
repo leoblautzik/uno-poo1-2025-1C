@@ -1,0 +1,3 @@
+Primer puesto:  [124, 129], con:  5000
+Segundo puesto: [145], con:  4500
+Tercer puesto:  [112, 137], con:  4000

@@ -1,0 +1,4 @@
+Materia			Reprobados	A Final 	Promocion
+ Matemática	          0	          1	          2
+ Historia 	          0	          1	          1
+ Física   	          0	          0	          2

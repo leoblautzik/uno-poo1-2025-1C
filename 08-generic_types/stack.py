@@ -20,7 +20,15 @@ class Pila:
 
     def pop(self):
         """desapilar"""
+        if self.is_empty():
+            raise NoHayElementosException
         return self.items.pop()
+
+    def peek(self):
+        """desapilar"""
+        if self.is_empty():
+            raise NoHayElementosException
+        return self.items[len(self.items) - 1]
 
     def is_empty(self) -> bool:
         """pila vacia"""
@@ -39,10 +47,14 @@ class Stack(Generic[T]):
 
     def pop(self) -> T:
         """desapila el tope de la pila y devuelve un elemento de tipo T"""
+        if self.is_empty():
+            raise NoHayElementosException
         return self.items.pop()
 
     def peek(self) -> T:
-        """desapila el tope de la pila y devuelve un elemento de tipo T"""
+        """devuelve el tope de la pila de tipo T, sin desapilarlo"""
+        if self.is_empty():
+            raise NoHayElementosException
         return self.items[len(self.items) - 1]
 
     def is_empty(self) -> bool:
@@ -212,11 +224,9 @@ class LinkedList(Generic[T]):
         return dato
 
     def size(self) -> int:
-
         return self.__len
 
     def is_empty(self) -> bool:
-
         return self.__primero is None
 
     def __repr__(self) -> str:

@@ -1,5 +1,7 @@
 """Torneo de Arquería"""
 
+from os import close
+
 
 class LineaMalFormadaException(Exception):
     pass
@@ -55,7 +57,7 @@ class Torneo:
                     print("Puntaje inválido")
         tiros.close()
 
-    def obtener_podio(self):
+    def escribir_podio(self):
         aux: dict[int, list[int]] = {}
 
         for participante, puntaje in self.__participantes.items():
@@ -69,15 +71,17 @@ class Torneo:
         ganadores = sorted(aux.keys(), reverse=True)
         ganadores = ganadores[:3]
 
-        print("Primer puesto: ", aux[ganadores[0]], " con: ", ganadores[0])
-        print("Segundo puesto: ", aux[ganadores[1]], " con: ", ganadores[1])
-        print("Tercer puesto: ", aux[ganadores[2]], " con: ", ganadores[2])
+        with open("podio.txt", "w") as podio:
+            podio.write(f"Primer puesto:  {aux[ganadores[0]]}, con:  {ganadores[0]}\n")
+            podio.write(f"Segundo puesto: {aux[ganadores[1]]}, con:  {ganadores[1]}\n")
+            podio.write(f"Tercer puesto:  {aux[ganadores[2]]}, con:  {ganadores[2]}")
+        podio.close()
 
 
 def main():
     try:
         t = Torneo("tiros.csv")
-        t.obtener_podio()
+        t.escribir_podio()
 
     except FileNotFoundError:
         print("Archivo no encontrado")
