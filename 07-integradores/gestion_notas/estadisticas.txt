@@ -1,4 +1,6 @@
 Materia			Reprobados	A Final 	Promocion
- Matemática	          0	          1	          2
- Historia 	          0	          1	          1
- Física   	          0	          0	          2
+Matemática	          2	          3	          6
+Historia  	          2	          3	          6
+Física    	          2	          1	          8
+Química   	          2	          1	          6
+Lengua    	          0	          2	          7

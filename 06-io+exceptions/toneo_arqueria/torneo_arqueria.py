@@ -1,7 +1,5 @@
 """Torneo de Arquería"""
 
-from os import close
-
 
 class LineaMalFormadaException(Exception):
     pass

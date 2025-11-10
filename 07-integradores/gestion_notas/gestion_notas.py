@@ -76,26 +76,23 @@ class GestionNotas:
         aux: dict[str, list[int]] = {}
 
         for cu in self.calificaciones:
-            # lc = aux.setdefault(cu.materia, [])
+            # aux.setdefault(cu.materia, [])
+            # aux[cu.materia].append(cu.nota)
             if cu.materia in aux.keys():
                 lc = aux[cu.materia]
             else:
                 lc = []
             lc.append(cu.nota)
-            # aux[cu.materia] = lc
-            aux.update({cu.materia: lc})
+            aux[cu.materia] = lc
+            # aux.update({cu.materia: lc})
 
         return aux
 
     def materia_mejor_promedio(self) -> tuple[float, list[str]]:
         aux: dict[str, float] = {}
         npm = self.notas_por_materia()
-        for k, v in npm.items():
-            materia = k
-            lista_calificaciones = v
+        for materia, lista_calificaciones in npm.items():
             suma_notas = sum(lista_calificaciones)
-            # for nota in lista_calificaciones:
-            #     suma_notas += nota
             promedio = float(suma_notas) / len(lista_calificaciones)
             aux[materia] = promedio
 
@@ -150,7 +147,8 @@ def main():
             break
         except FileNotFoundError:
             print("No se encuentra el archivo, intenete nuevamente...")
-            for f in os.listdir("."):  # Lista de archivos y directorios
+
+            for f in os.listdir(".."):  # Lista de archivos y directorios
                 print(f)
 
 
